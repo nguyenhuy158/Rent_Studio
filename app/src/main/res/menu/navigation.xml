@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <!-- <?xml version="1.0" encoding="utf-8"?>&lt;!&ndash; -->
+    <!--   ~ Copyright (C) 12/20/22, 10:16 AM Nguyen Huy -->
+    <!--   ~ -->
+    <!--   ~ navigation.xml [lastModified: 12/20/22, 10:16 AM] -->
+    <!--   ~ -->
+    <!--   ~ Contact: -->
+    <!--   ~ facebook: https://www.facebook.com/nguyenhuy158/ -->
+    <!--   ~ github: https://www.github.com/nguyenhuy158/ -->
+    <!--   &ndash;&gt; -->
+    
+    <!-- <menu xmlns:android="http://schemas.android.com/apk/res/android" > -->
+    <!--     <item android:title="Trang chủ" /> -->
+    <!--     <item android:title="Đề xuất" /> -->
+    <!--     <item android:title="Đặt nhanh" /> -->
+    <!--     <item android:title="Ưu đãi" /> -->
+    <!--     <item android:title="Tài khoảng" /> -->
+    <!-- </menu > -->
+    <item
+        android:id="@+id/navigation_account"
+        android:icon="@drawable/ic_baseline_store_24"
+        android:title="@string/title_shop"
+        />
+    
+    <item
+        android:id="@+id/navigation_reward"
+        android:icon="@drawable/ic_baseline_card_giftcard_24"
+        android:title="@string/title_gifts"
+        />
+    
+    <item
+        android:id="@+id/navigation_cart"
+        android:icon="@drawable/ic_baseline_shopping_cart_24"
+        android:title="@string/title_cart"
+        />
+    
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/ic_baseline_person_24"
+        android:title="@string/title_profile"
+        />
+
+</menu >

@@ -1,3 +1,25 @@
+<!--
+  ~ Copyright (C) 12/18/22, 5:18 PM Nguyen Huy
+  ~
+  ~ strings.xml [lastModified: 12/18/22, 5:05 PM]
+  ~
+  ~ Contact:
+  ~ facebook: https://www.facebook.com/nguyenhuy158/
+  ~ github: https://www.github.com/nguyenhuy158/
+  -->
+
 <resources >
     <string name="app_name" >Rent Studio</string >
+    
+    <string name="title_shop" >Shop</string >
+    <string name="title_gifts" >Gifts</string >
+    <string name="title_cart" >Cart</string >
+    <string name="title_profile" >Profile</string >
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_fragment_1" >Hello fragment 1</string >
+    <string name="hello_fragment_2" >Hello fragment 2</string >
+    <string name="USER_TABLE" >User</string >
+    <string name="CATEGORY_TABLE" >Category</string >
+    <string name="STUDIO_TABLE" >Studio</string >
+    <string name="KEY_CATEGORY_ID" >CategoryId</string >
 </resources >

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (C) 12/20/22, 10:15 PM Nguyen Huy
+  ~
+  ~ item.xml [lastModified: 12/20/22, 10:15 PM]
+  ~
+  ~ Contact:
+  ~ facebook: https://www.facebook.com/nguyenhuy158/
+  ~ github: https://www.github.com/nguyenhuy158/
+  -->
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+    
+    <ImageView
+        android:id="@+id/imageViewStudioThumbnail"
+        android:layout_width="350dp"
+        android:layout_height="250dp"
+        android:scaleType="centerCrop"
+        />
+    
+    <TextView
+        android:id="@+id/textViewCategoryName"
+        style="@style/TextAppearance.AppCompat.Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/hello_fragment_1"
+        />
+
+
+</LinearLayout >

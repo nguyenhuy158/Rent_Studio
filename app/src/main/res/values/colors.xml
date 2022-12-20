@@ -1,4 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (C) 12/18/22, 5:18 PM Nguyen Huy
+  ~
+  ~ colors.xml [lastModified: 12/18/22, 4:53 PM]
+  ~
+  ~ Contact:
+  ~ facebook: https://www.facebook.com/nguyenhuy158/
+  ~ github: https://www.github.com/nguyenhuy158/
+  -->
+
 <resources >
     <color name="purple_200" >#FFBB86FC</color >
     <color name="purple_500" >#FF6200EE</color >
@@ -7,4 +16,42 @@
     <color name="teal_700" >#FF018786</color >
     <color name="black" >#FF000000</color >
     <color name="white" >#FFFFFFFF</color >
+    
+    
+    //Color Swatches provided by http://designmodo.github.io/Flat-UI/
+    <color name="fbutton_color_turquoise" >#1abc9c</color >
+    <color name="fbutton_color_green_sea" >#16a085</color >
+    <color name="fbutton_color_emerald" >#2ecc71</color >
+    <color name="fbutton_color_nephritis" >#27ae60</color >
+    <color name="fbutton_color_peter_river" >#3498db</color >
+    <color name="fbutton_color_belize_hole" >#2980b9</color >
+    <color name="fbutton_color_amethyst" >#9b59b6</color >
+    <color name="fbutton_color_wisteria" >#8e44ad</color >
+    <color name="fbutton_color_wet_asphalt" >#34495e</color >
+    <color name="fbutton_color_midnight_blue" >#2c3e50</color >
+    <color name="fbutton_color_sun_flower" >#f1c40f</color >
+    <color name="fbutton_color_orange" >#f39c12</color >
+    <color name="fbutton_color_carrot" >#e67e22</color >
+    <color name="fbutton_color_pumpkin" >#d35400</color >
+    <color name="fbutton_color_alizarin" >#e74c3c</color >
+    <color name="fbutton_color_pomegranate" >#c0392b</color >
+    <color name="fbutton_color_clouds" >#ecf0f1</color >
+    <color name="fbutton_color_silver" >#bdc3c7</color >
+    <color name="fbutton_color_concrete" >#95a5a6</color >
+    <color name="fbutton_color_asbestos" >#7f8c8d</color >
+    
+    <!--     custom color -->
+    <color name="colorPrimary" >#7b4bff</color >
+    <color name="colorPrimaryDark" >#6539ba</color >
+    <color name="colorAccent" >#FF4081</color >
+    <color name="bgBottomNavigation" >#fe485a</color >
+    
+    <array name="rainbow" >
+        <item >#FFF60000</item >
+        <item >#FFFF8C00</item >
+        <item >#FFFFEE00</item >
+        <item >#FF4DE94C</item >
+        <item >#FF3783FF</item >
+        <item >#FF4815AA</item >
+    </array >
 </resources >
