@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.nguyenhuy158.rentstudio"
-        minSdk 21
+        minSdk 24
         targetSdk 32
         versionCode 1
         versionName "1.0"
@@ -40,4 +40,15 @@ dependencies {
 
 
     // library
+    implementation 'info.hoang8f:fbutton:1.0.5'
+    implementation 'com.github.AliAzaz:Edittext-Library:2.0.0'
+    implementation 'com.github.guilhe:circular-progress-view:2.0.0'
+//    implementation 'com.github.techinessoverloaded:progress-dialog:1.5.1'
+    implementation 'io.github.shashank02051997:FancyToast:2.0.2'
+
+    implementation 'com.squareup.picasso:picasso:2.8'
+    // FirebaseUI for Firebase Realtime Database
+    implementation 'com.firebaseui:firebase-ui-database:8.0.2'
+
+
 }
