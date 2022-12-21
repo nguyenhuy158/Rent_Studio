@@ -121,16 +121,25 @@ public class HomeActivity extends AppCompatActivity {
 		transaction.commit();
 	}
 	
-	@Override
-	public void onBackPressed() {
+@Override
+public void onBackPressed() {
+	// get parent host
+	Fragment fragmentHost = getSupportFragmentManager().findFragmentById(
+			R.id.frame_container);
+	// get first child fragment
+	Fragment fragment = fragmentHost.getChildFragmentManager()
+	                                .getFragments().get(0);
+	if (fragment instanceof AccountFragment) {
+		Log.d(STRING.TAG, "onBackPressed: home");
 		if (doubleBackToExitPressedOnce) {
 			super.onBackPressed();
 			return;
 		}
 		
 		this.doubleBackToExitPressedOnce = true;
-		FancyToast.makeText(this, STRING.message_exit, FancyToast.LENGTH_SHORT,
-		                    FancyToast.INFO, false).show();
+		FancyToast.makeText(this, STRING.message_exit,
+		                    FancyToast.LENGTH_SHORT, FancyToast.INFO, false)
+		          .show();
 		
 		new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
 			
@@ -139,5 +148,9 @@ public class HomeActivity extends AppCompatActivity {
 				doubleBackToExitPressedOnce = false;
 			}
 		}, STRING.delayMillis);
+	} else {
+		Log.d(STRING.TAG, "onBackPressed: not home");
+		super.onBackPressed();
 	}
+}
 }
