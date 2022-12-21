@@ -122,9 +122,7 @@ public class AccountFragment extends Fragment {
 				holder.itemView.setOnClickListener(new View.OnClickListener() {
 					@Override
 					public void onClick(View v) {
-						FancyToast.makeText(getContext(), "" + model.getName(),
-						                    FancyToast.LENGTH_SHORT,
-						                    FancyToast.SUCCESS, false).show();
+						Log.d(TAG, "onClick: " + model.getName());
 						
 						// sent category id to new activity
 						Intent intent = new Intent(getContext(),
@@ -138,9 +136,6 @@ public class AccountFragment extends Fragment {
 				});
 			}
 		};
-		FancyToast.makeText(getContext(), "count" + adapter.getItemCount(),
-		                    FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, false)
-		          .show();
 		Log.i(TAG, "getCategory: " + adapter.getItemCount());
 		
 		recyclerView.setAdapter(adapter);
