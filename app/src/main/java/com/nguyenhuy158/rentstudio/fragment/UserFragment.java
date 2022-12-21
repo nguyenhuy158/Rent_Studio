@@ -42,9 +42,10 @@ public class UserFragment extends Fragment implements View.OnClickListener {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	                         Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.fragment_user, container, false);
+		View   view               = inflater.inflate(R.layout.fragment_user,
+		                                             container, false);
 		Button buttonOrderHistory = view.findViewById(R.id.buttonOrderHistory);
-		Button buttonLogout = view.findViewById(R.id.buttonLogout);
+		Button buttonLogout       = view.findViewById(R.id.buttonLogout);
 		buttonOrderHistory.setOnClickListener(this);
 		buttonLogout.setOnClickListener(this);
 		// Inflate the layout for this fragment
@@ -55,13 +56,15 @@ public class UserFragment extends Fragment implements View.OnClickListener {
 	public void onClick(View v) {
 		switch (v.getId()) {
 			case R.id.buttonOrderHistory:
-				Intent intent = new Intent(getContext(), OrderStatusActivity.class);
+				Intent intent = new Intent(getContext(),
+				                           OrderStatusActivity.class);
 				startActivity(intent);
 				break;
 			case R.id.buttonLogout:
-					intent = new Intent(getContext(), WelcomeActivity.class);
-					intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-					startActivity(intent);
+				intent = new Intent(getContext(), WelcomeActivity.class);
+				intent.setFlags(
+						Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+				startActivity(intent);
 				break;
 		}
 	}
