@@ -25,7 +25,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.nguyenhuy158.rentstudio.model.Common;
 import com.nguyenhuy158.rentstudio.model.User;
+import com.nguyenhuy158.rentstudio.myinterface.STRING;
 import com.shashank.sony.fancytoastlib.FancyToast;
 
 public class LoginActivity extends AppCompatActivity
@@ -34,23 +36,23 @@ public class LoginActivity extends AppCompatActivity
 	
 	FirebaseDatabase  firebaseDatabase = FirebaseDatabase.getInstance();
 	DatabaseReference databaseReference;
-	EditText          editTextUsername;
+	EditText          editTextUsernameOrPhone;
 	EditText          editTextPassword;
 	// EditTextPicker
 	Button            button;
 	ProgressBar       circularProgress;
+	User              currentUser;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
-		databaseReference = firebaseDatabase.getReference(
-				getResources().getString(R.string.USER_TABLE));
+		databaseReference = firebaseDatabase.getReference(STRING.USER_TABLE);
 		
-		editTextUsername = findViewById(R.id.editTextUsername);
-		editTextPassword = findViewById(R.id.editTextPassword);
-		button           = findViewById(R.id.buttonSignIn);
-		circularProgress = findViewById(R.id.circularProgress);
+		editTextUsernameOrPhone = findViewById(R.id.editTextUsername);
+		editTextPassword        = findViewById(R.id.editTextPassword);
+		button                  = findViewById(R.id.buttonSignIn);
+		circularProgress        = findViewById(R.id.circularProgress);
 		button.setOnClickListener(this);
 		
 	}
@@ -64,12 +66,16 @@ public class LoginActivity extends AppCompatActivity
 		}
 		
 	}
+	
 	private void goToHome() {
+		Common.setUser(currentUser);
+		Common.setPhone(editTextUsernameOrPhone.getText().toString());
 		Intent intent = new Intent(this, HomeActivity.class);
-		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		startActivity(intent);
 		this.finish();
 	}
+	
 	private void logInProcess() {
 		
 		circularProgress.setVisibility(View.VISIBLE);
@@ -77,16 +83,19 @@ public class LoginActivity extends AppCompatActivity
 		databaseReference.addValueEventListener(new ValueEventListener() {
 			@Override
 			public void onDataChange(@NonNull DataSnapshot snapshot) {
-				if (snapshot.child(editTextUsername.getText().toString())
+				if (snapshot.child(editTextUsernameOrPhone.getText().toString())
 				            .exists()) {
 					User user = snapshot.child(
-							editTextUsername.getText().toString()).getValue(
-							User.class);
+							                    editTextUsernameOrPhone.getText().toString())
+					                    .getValue(User.class);
 					if (user.getPassword().equals(
 							editTextPassword.getText().toString())) {
 						FancyToast.makeText(LoginActivity.this, "Login Success",
 						                    FancyToast.LENGTH_LONG,
 						                    FancyToast.SUCCESS, true).show();
+						
+						// save currentUser
+						currentUser = user;
 						goToHome();
 					} else {
 						FancyToast.makeText(LoginActivity.this, "Login Fail",

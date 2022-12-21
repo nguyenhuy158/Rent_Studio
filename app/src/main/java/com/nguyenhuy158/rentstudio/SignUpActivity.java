@@ -25,13 +25,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.nguyenhuy158.rentstudio.model.User;
+import com.nguyenhuy158.rentstudio.myinterface.STRING;
 import com.shashank.sony.fancytoastlib.FancyToast;
 
 public class SignUpActivity extends AppCompatActivity
 		implements View.OnClickListener {
 	FirebaseDatabase firebaseDatabase  = FirebaseDatabase.getInstance();
 	DatabaseReference    databaseReference =
-			firebaseDatabase.getReference(getString(R.string.USER_TABLE));
+			firebaseDatabase.getReference(STRING.USER_TABLE);
 	EditText             editTextUsername;
 	EditText             editTextPassword;
 	// EditTextPicker

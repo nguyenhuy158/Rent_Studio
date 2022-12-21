@@ -12,6 +12,7 @@ package com.nguyenhuy158.rentstudio;
 
 import static android.content.ContentValues.TAG;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -29,6 +30,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.nguyenhuy158.rentstudio.model.Studio;
+import com.nguyenhuy158.rentstudio.myinterface.STRING;
 import com.nguyenhuy158.rentstudio.viewholder.StudioViewHolder;
 
 public class StudioList extends AppCompatActivity {
@@ -45,14 +47,14 @@ public class StudioList extends AppCompatActivity {
 		setContentView(R.layout.activity_studio_list);
 		
 		if (getIntent() != null) {
-			CategoryId = getIntent().getStringExtra(
-					getResources().getString(R.string.KEY_CATEGORY_ID));
+			CategoryId = getIntent().getStringExtra(STRING.KEY_CATEGORY_ID);
 		}
 		Log.i(TAG, "onCreate: " + CategoryId);
 		recyclerView = findViewById(R.id.recyclerView);
-		recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(),
-		                                                      LinearLayoutManager.VERTICAL,
-		                                                      false));
+		recyclerView.setLayoutManager(
+				new WrapContentLinearLayoutManager(getApplicationContext(),
+				                                   LinearLayoutManager.VERTICAL,
+				                                   false));
 		loadListStudio();
 		// if (!CategoryId.isEmpty() || CategoryId != null) {
 		// 	Log.i(TAG, "onCreate: load list");
@@ -64,7 +66,7 @@ public class StudioList extends AppCompatActivity {
 		// 		getResources().getString(R.string.STUDIO_TABLE)).equalTo(
 		// 		CategoryId).limitToLast(50);
 		Query query = FirebaseDatabase.getInstance().getReference(
-				getResources().getString(R.string.STUDIO_TABLE));
+				STRING.STUDIO_TABLE);
 		FirebaseRecyclerOptions<Studio> firebaseRecyclerOptions
 				= new FirebaseRecyclerOptions.Builder<Studio>().setQuery(query,
 				                                                         Studio.class)
@@ -77,7 +79,7 @@ public class StudioList extends AppCompatActivity {
 			public StudioViewHolder onCreateViewHolder(
 					@NonNull ViewGroup parent, int viewType) {
 				View view = LayoutInflater.from(parent.getContext()).inflate(
-						R.layout.studio_item, parent, false);
+						R.layout.item_studio, parent, false);
 				
 				return new StudioViewHolder(view);
 			}
@@ -86,12 +88,17 @@ public class StudioList extends AppCompatActivity {
 			protected void onBindViewHolder(@NonNull StudioViewHolder holder,
 			                                int position,
 			                                @NonNull Studio model) {
+				if (holder == null) {return;}
 				holder.textViewStudioName.setText(model.getName());
 				holder.textViewStudioPrice.setText(model.getPrice() + "");
 				holder.itemView.setOnClickListener(new View.OnClickListener() {
 					@Override
 					public void onClick(View v) {
-					
+						Intent intent = new Intent(StudioList.this,
+						                           DetailStudioActivity.class);
+						intent.putExtra(STRING.KEY_STUDIO_ID, adapter
+								.getRef(holder.getAdapterPosition()).getKey());
+						startActivity(intent);
 					}
 				});
 			}

@@ -10,22 +10,80 @@
 
 package com.nguyenhuy158.rentstudio;
 
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.util.Log;
+import android.view.MenuItem;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-
-import android.os.Bundle;
-import android.view.MenuItem;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.nguyenhuy158.rentstudio.myinterface.STRING;
+import com.shashank.sony.fancytoastlib.FancyToast;
 
 public class HomeActivity extends AppCompatActivity {
+	boolean doubleBackToExitPressedOnce = false;
 	private ActionBar toolbar;
+	
+	
+	private NavigationBarView.OnItemSelectedListener onItemSelectedListener
+			= new NavigationBarView.OnItemSelectedListener() {
+		@Override
+		public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+			Fragment fragment;
+			switch (item.getItemId()) {
+				case R.id.accountFragment:
+					toolbar.setTitle("Account");
+					fragment = new AccountFragment();
+					loadFragment(fragment);
+					return true;
+				case R.id.rewardFragment:
+					toolbar.setTitle("Reward");
+					fragment = new RewardFragment();
+					loadFragment(fragment);
+					return true;
+				case R.id.userFragment:
+					toolbar.setTitle("Profile");
+					fragment = new UserFragment();
+					loadFragment(fragment);
+					return true;
+			}
+			return false;
+		}
+	};
+	private BottomNavigationView.OnNavigationItemSelectedListener
+			onNavigationItemSelectedListener
+			= new BottomNavigationView.OnNavigationItemSelectedListener() {
+		@Override
+		public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+			Fragment fragment;
+			switch (item.getItemId()) {
+				case R.id.accountFragment:
+					toolbar.setTitle("Account");
+					fragment = new AccountFragment();
+					loadFragment(fragment);
+					return true;
+				case R.id.rewardFragment:
+					toolbar.setTitle("Reward");
+					fragment = new RewardFragment();
+					loadFragment(fragment);
+					return true;
+			}
+			return false;
+		}
+	};
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -33,62 +91,50 @@ public class HomeActivity extends AppCompatActivity {
 		
 		toolbar = getSupportActionBar();
 		
-		BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-		// navigation.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
-		navigation.setOnItemSelectedListener(onItemSelectedListener);
-		// attaching bottom sheet behaviour - hide / show on scroll
-		CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) navigation.getLayoutParams();
-		layoutParams.setBehavior(new BottomNavigationBehavior());
+		BottomNavigationView navigation = (BottomNavigationView) findViewById(
+				R.id.navigation);
 		
-		// load the store fragment by default
-		toolbar.setTitle("Account");
-		loadFragment(new AccountFragment());
+		// Passing each menu ID as a set of Ids because each
+		// menu should be considered as top level destinations.
+		AppBarConfiguration appBarConfiguration
+				= new AppBarConfiguration.Builder(R.id.accountFragment,
+				                                  R.id.rewardFragment,
+				                                  R.id.cartFragment,
+				                                  R.id.userFragment).build();
+		NavController navController = Navigation.findNavController(this,
+		                                                           R.id.frame_container);
+		NavigationUI.setupActionBarWithNavController(this, navController,
+		                                             appBarConfiguration);
+		NavigationUI.setupWithNavController(navigation, navController);
 	}
-	
-	NavigationBarView.OnItemSelectedListener onItemSelectedListener = new NavigationBarView.OnItemSelectedListener() {
-		@Override
-		public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-			Fragment fragment;
-			switch (item.getItemId()) {
-				case R.id.navigation_account:
-					toolbar.setTitle("Account");
-					fragment = new AccountFragment();
-					loadFragment(fragment);
-					return true;
-				case R.id.navigation_reward:
-					toolbar.setTitle("Reward");
-					fragment = new RewardFragment();
-					loadFragment(fragment);
-					return true;
-			}
-			return false;
-		}
-	};
-	private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
-		@Override
-		public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-			Fragment fragment;
-			switch (item.getItemId()) {
-				case R.id.navigation_account:
-					toolbar.setTitle("Account");
-					fragment = new AccountFragment();
-					loadFragment(fragment);
-					return true;
-				case R.id.navigation_reward:
-					toolbar.setTitle("Reward");
-					fragment = new RewardFragment();
-					loadFragment(fragment);
-					return true;
-			}
-			return false;
-		}
-	};
 	
 	private void loadFragment(Fragment fragment) {
 		// load fragment
-		FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+		FragmentTransaction transaction
+				= getSupportFragmentManager().beginTransaction();
 		transaction.replace(R.id.frame_container, fragment);
 		transaction.addToBackStack(null);
+		Log.d(STRING.TAG, "loadFragment: Home");
 		transaction.commit();
+	}
+	
+	@Override
+	public void onBackPressed() {
+		// if (doubleBackToExitPressedOnce) {
+			super.onBackPressed();
+		// 	return;
+		// }
+		//
+		// this.doubleBackToExitPressedOnce = true;
+		// FancyToast.makeText(this, STRING.message_exit, FancyToast.LENGTH_SHORT,
+		//                     FancyToast.INFO, false).show();
+		//
+		// new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+		//
+		// 	@Override
+		// 	public void run() {
+		// 		doubleBackToExitPressedOnce = false;
+		// 	}
+		// }, STRING.delayMillis);
 	}
 }

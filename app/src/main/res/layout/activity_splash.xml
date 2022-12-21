@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (C) 12/21/22, 6:36 PM Nguyen Huy
+  ~
+  ~ activity_splash.xml [lastModified: 12/21/22, 6:33 PM]
+  ~
+  ~ Contact:
+  ~ facebook: https://www.facebook.com/nguyenhuy158/
+  ~ github: https://www.github.com/nguyenhuy158/
+  -->
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    tools:context=".SplashActivity"
+    >
+    
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/splash_screen"
+        />
+    <!--     <com.airbnb.lottie.LottieAnimationView -->
+    <!--         android:id="@+id/animationView" -->
+    <!--         android:layout_width="match_parent" -->
+    <!--         android:layout_height="match_parent" -->
+    <!--         app:lottie_autoPlay="true" -->
+    <!--         app:lottie_loop="true" -->
+    <!--         app:lottie_rawRes="@raw/splash_screen" -->
+    <!--         /> -->
+</LinearLayout >

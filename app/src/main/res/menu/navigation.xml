@@ -18,25 +18,25 @@
     <!--     <item android:title="Tài khoảng" /> -->
     <!-- </menu > -->
     <item
-        android:id="@+id/navigation_account"
+        android:id="@+id/accountFragment"
         android:icon="@drawable/ic_baseline_store_24"
         android:title="@string/title_shop"
         />
     
     <item
-        android:id="@+id/navigation_reward"
+        android:id="@+id/rewardFragment"
         android:icon="@drawable/ic_baseline_card_giftcard_24"
         android:title="@string/title_gifts"
         />
     
     <item
-        android:id="@+id/navigation_cart"
+        android:id="@+id/cartFragment"
         android:icon="@drawable/ic_baseline_shopping_cart_24"
         android:title="@string/title_cart"
         />
     
     <item
-        android:id="@+id/navigation_profile"
+        android:id="@+id/userFragment"
         android:icon="@drawable/ic_baseline_person_24"
         android:title="@string/title_profile"
         />

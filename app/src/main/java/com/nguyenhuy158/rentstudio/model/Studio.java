@@ -14,6 +14,15 @@ public class Studio {
 	private String CategoryId;
 	private String name;
 	private int    price;
+	private String thumbnailUrl;
+	
+	public Studio(String categoryId, String name, int price,
+	              String thumbnailUrl) {
+		CategoryId        = categoryId;
+		this.name         = name;
+		this.price        = price;
+		this.thumbnailUrl = thumbnailUrl;
+	}
 	
 	public Studio() {
 	}
@@ -22,6 +31,14 @@ public class Studio {
 		CategoryId = categoryId;
 		this.name  = name;
 		this.price = price;
+	}
+	
+	public String getThumbnailUrl() {
+		return thumbnailUrl;
+	}
+	
+	public void setThumbnailUrl(String thumbnailUrl) {
+		this.thumbnailUrl = thumbnailUrl;
 	}
 	
 	public String getCategoryId() {

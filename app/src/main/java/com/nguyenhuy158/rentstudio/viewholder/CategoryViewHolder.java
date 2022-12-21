@@ -31,7 +31,7 @@ public class CategoryViewHolder extends RecyclerView.ViewHolder
 		textViewCategoryName = itemView.findViewById(
 				R.id.textViewCategoryName);
 		imageViewStudioThumbnail = itemView.findViewById(
-				R.id.imageViewStudioThumbnail);
+				R.id.imageViewCategoryThumbnail);
 		
 		itemView.setOnClickListener(this);
 	}

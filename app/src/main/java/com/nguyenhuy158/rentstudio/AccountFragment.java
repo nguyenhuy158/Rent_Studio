@@ -30,6 +30,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.nguyenhuy158.rentstudio.model.Category;
+import com.nguyenhuy158.rentstudio.myinterface.STRING;
 import com.nguyenhuy158.rentstudio.viewholder.CategoryViewHolder;
 import com.shashank.sony.fancytoastlib.FancyToast;
 import com.squareup.picasso.Picasso;
@@ -69,7 +70,7 @@ public class AccountFragment extends Fragment {
 		}
 		
 		databaseReference = firebaseDatabase.getReference(
-				getResources().getString(R.string.CATEGORY_TABLE));
+				STRING.CATEGORY_TABLE);
 	}
 	
 	@Override
@@ -80,9 +81,10 @@ public class AccountFragment extends Fragment {
 		                             false);
 		recyclerView = view.findViewById(R.id.recyclerView);
 		// recyclerView.setHasFixedSize(true);
-		recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),
-		                                                      LinearLayoutManager.HORIZONTAL,
-		                                                      false));
+		recyclerView.setLayoutManager(
+				new WrapContentLinearLayoutManager(getContext(),
+				                                   LinearLayoutManager.HORIZONTAL,
+				                                   false));
 		getCategory();
 		
 		return view;
@@ -101,8 +103,8 @@ public class AccountFragment extends Fragment {
 			public CategoryViewHolder onCreateViewHolder(
 					@NonNull ViewGroup parent, int viewType) {
 				View view = LayoutInflater.from(parent.getContext()).inflate(
-						R.layout.category_item, parent, false);
-						
+						R.layout.item_category, parent, false);
+				
 				return new CategoryViewHolder(view);
 			}
 			
@@ -124,10 +126,9 @@ public class AccountFragment extends Fragment {
 						// sent category id to new activity
 						Intent intent = new Intent(getContext(),
 						                           StudioList.class);
-						intent.putExtra(getResources().getString(
-								R.string.KEY_CATEGORY_ID), adapter
-								                .getRef(holder.getAbsoluteAdapterPosition())
-								                .getKey());
+						intent.putExtra(STRING.KEY_CATEGORY_ID, adapter
+								.getRef(holder.getAbsoluteAdapterPosition())
+								.getKey());
 						startActivity(intent);
 						
 					}
