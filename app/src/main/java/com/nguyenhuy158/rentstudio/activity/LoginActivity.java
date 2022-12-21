@@ -72,7 +72,7 @@ public class LoginActivity extends AppCompatActivity
 		Common.setUser(currentUser);
 		Common.setPhone(editTextUsernameOrPhone.getText().toString());
 		Intent intent = new Intent(this, HomeActivity.class);
-		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
 		startActivity(intent);
 		this.finish();
 	}
