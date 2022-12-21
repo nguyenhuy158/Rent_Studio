@@ -36,4 +36,5 @@ public interface STRING {
 	String fragment     = "fragmentt";
 	String    message_exit = "Please click BACK again to exit";
 	long delayMillis       = 2000;
+	long delayMillisSplashScreen       = 3000;
 }

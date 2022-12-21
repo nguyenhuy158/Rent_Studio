@@ -11,6 +11,8 @@
 package com.nguyenhuy158.rentstudio.activity;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.view.MenuItem;
 
@@ -27,10 +29,11 @@ import androidx.navigation.ui.NavigationUI;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.nguyenhuy158.rentstudio.R;
+import com.nguyenhuy158.rentstudio.fragment.AccountFragment;
 import com.nguyenhuy158.rentstudio.fragment.RewardFragment;
 import com.nguyenhuy158.rentstudio.fragment.UserFragment;
-import com.nguyenhuy158.rentstudio.fragment.AccountFragment;
 import com.nguyenhuy158.rentstudio.myinterface.STRING;
+import com.shashank.sony.fancytoastlib.FancyToast;
 
 public class HomeActivity extends AppCompatActivity {
 	boolean doubleBackToExitPressedOnce = false;
@@ -63,7 +66,7 @@ public class HomeActivity extends AppCompatActivity {
 		}
 	};
 	private BottomNavigationView.OnNavigationItemSelectedListener
-			onNavigationItemSelectedListener
+	                                                 onNavigationItemSelectedListener
 			= new BottomNavigationView.OnNavigationItemSelectedListener() {
 		@Override
 		public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -120,21 +123,21 @@ public class HomeActivity extends AppCompatActivity {
 	
 	@Override
 	public void onBackPressed() {
-		// if (doubleBackToExitPressedOnce) {
+		if (doubleBackToExitPressedOnce) {
 			super.onBackPressed();
-		// 	return;
-		// }
-		//
-		// this.doubleBackToExitPressedOnce = true;
-		// FancyToast.makeText(this, STRING.message_exit, FancyToast.LENGTH_SHORT,
-		//                     FancyToast.INFO, false).show();
-		//
-		// new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-		//
-		// 	@Override
-		// 	public void run() {
-		// 		doubleBackToExitPressedOnce = false;
-		// 	}
-		// }, STRING.delayMillis);
+			return;
+		}
+		
+		this.doubleBackToExitPressedOnce = true;
+		FancyToast.makeText(this, STRING.message_exit, FancyToast.LENGTH_SHORT,
+		                    FancyToast.INFO, false).show();
+		
+		new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+			
+			@Override
+			public void run() {
+				doubleBackToExitPressedOnce = false;
+			}
+		}, STRING.delayMillis);
 	}
 }

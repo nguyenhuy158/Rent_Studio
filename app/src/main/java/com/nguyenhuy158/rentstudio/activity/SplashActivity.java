@@ -34,6 +34,6 @@ public class SplashActivity extends AppCompatActivity {
 				startActivity(intent);
 				SplashActivity.this.finish();
 			}
-		}, STRING.delayMillis);
+		}, STRING.delayMillisSplashScreen);
 	}
 }
