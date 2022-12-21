@@ -1,14 +1,14 @@
 /*
- * Copyright (C) 12/18/22, 5:18 PM Nguyen Huy
+ * Copyright (C) 12/21/22, 10:21 PM Nguyen Huy
  *
- * MainActivity.java [lastModified: 12/18/22, 5:10 PM]
+ * WelcomeActivity.java [lastModified: 12/21/22, 10:16 PM]
  *
  * Contact:
  * facebook: https://www.facebook.com/nguyenhuy158/
  * github: https://www.github.com/nguyenhuy158/
  */
 
-package com.nguyenhuy158.rentstudio;
+package com.nguyenhuy158.rentstudio.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -23,10 +23,11 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.nguyenhuy158.rentstudio.R;
+import com.nguyenhuy158.rentstudio.activity.LoginActivity;
+import com.nguyenhuy158.rentstudio.activity.SignUpActivity;
 
-import info.hoang8f.widget.FButton;
-
-public class MainActivity extends AppCompatActivity
+public class WelcomeActivity extends AppCompatActivity
 		implements View.OnClickListener {
 	
 	private static final String TAG = "";
@@ -34,7 +35,7 @@ public class MainActivity extends AppCompatActivity
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.activity_welcome);
 		
 		firebase();
 		

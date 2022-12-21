@@ -16,7 +16,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:background="@color/fbutton_color_green_sea"
-    tools:context=".StudioList"
+    tools:context=".activity.StudioListActivity"
     >
     <TextView
         android:layout_width="wrap_content"

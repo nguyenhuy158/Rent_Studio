@@ -1,14 +1,14 @@
 /*
- * Copyright (C) 12/20/22, 10:27 AM Nguyen Huy
+ * Copyright (C) 12/21/22, 10:20 PM Nguyen Huy
  *
- * AccountFragment.java [lastModified: 12/20/22, 10:27 AM]
+ * AccountFragment.java [lastModified: 12/21/22, 10:16 PM]
  *
  * Contact:
  * facebook: https://www.facebook.com/nguyenhuy158/
  * github: https://www.github.com/nguyenhuy158/
  */
 
-package com.nguyenhuy158.rentstudio;
+package com.nguyenhuy158.rentstudio.fragment;
 
 import static android.content.ContentValues.TAG;
 
@@ -29,6 +29,9 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.nguyenhuy158.rentstudio.R;
+import com.nguyenhuy158.rentstudio.activity.StudioListActivity;
+import com.nguyenhuy158.rentstudio.fixbug.WrapContentLinearLayoutManager;
 import com.nguyenhuy158.rentstudio.model.Category;
 import com.nguyenhuy158.rentstudio.myinterface.STRING;
 import com.nguyenhuy158.rentstudio.viewholder.CategoryViewHolder;
@@ -125,7 +128,7 @@ public class AccountFragment extends Fragment {
 						
 						// sent category id to new activity
 						Intent intent = new Intent(getContext(),
-						                           StudioList.class);
+						                           StudioListActivity.class);
 						intent.putExtra(STRING.KEY_CATEGORY_ID, adapter
 								.getRef(holder.getAbsoluteAdapterPosition())
 								.getKey());

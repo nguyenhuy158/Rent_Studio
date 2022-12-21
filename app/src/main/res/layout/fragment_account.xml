@@ -16,7 +16,7 @@
     android:layout_height="match_parent"
     android:overScrollMode="always"
     android:scrollbars="none"
-    tools:context=".AccountFragment"
+    tools:context=".fragment.AccountFragment"
     >
     
     <LinearLayout

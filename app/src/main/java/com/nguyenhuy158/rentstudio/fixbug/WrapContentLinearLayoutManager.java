@@ -1,14 +1,14 @@
 /*
- * Copyright (C) 12/21/22, 10:37 AM Nguyen Huy
+ * Copyright (C) 12/21/22, 10:22 PM Nguyen Huy
  *
- * WrapContentLinearLayoutManager.java [lastModified: 12/21/22, 10:37 AM]
+ * WrapContentLinearLayoutManager.java [lastModified: 12/21/22, 10:16 PM]
  *
  * Contact:
  * facebook: https://www.facebook.com/nguyenhuy158/
  * github: https://www.github.com/nguyenhuy158/
  */
 
-package com.nguyenhuy158.rentstudio;
+package com.nguyenhuy158.rentstudio.fixbug;
 
 import android.content.Context;
 import android.util.Log;

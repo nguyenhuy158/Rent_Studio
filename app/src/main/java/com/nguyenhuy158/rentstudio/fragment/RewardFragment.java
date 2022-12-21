@@ -1,14 +1,14 @@
 /*
- * Copyright (C) 12/20/22, 10:31 AM Nguyen Huy
+ * Copyright (C) 12/21/22, 10:21 PM Nguyen Huy
  *
- * RewardFragment.java [lastModified: 12/20/22, 10:31 AM]
+ * RewardFragment.java [lastModified: 12/20/22, 10:33 AM]
  *
  * Contact:
  * facebook: https://www.facebook.com/nguyenhuy158/
  * github: https://www.github.com/nguyenhuy158/
  */
 
-package com.nguyenhuy158.rentstudio;
+package com.nguyenhuy158.rentstudio.fragment;
 
 import android.os.Bundle;
 
@@ -17,6 +17,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.nguyenhuy158.rentstudio.R;
 
 public class RewardFragment extends Fragment {
 	

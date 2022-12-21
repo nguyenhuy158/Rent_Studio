@@ -1,14 +1,14 @@
 /*
- * Copyright (C) 12/18/22, 5:44 PM Nguyen Huy
+ * Copyright (C) 12/21/22, 10:21 PM Nguyen Huy
  *
- * SignUpActivity.java [lastModified: 12/18/22, 5:44 PM]
+ * SignUpActivity.java [lastModified: 12/21/22, 10:16 PM]
  *
  * Contact:
  * facebook: https://www.facebook.com/nguyenhuy158/
  * github: https://www.github.com/nguyenhuy158/
  */
 
-package com.nguyenhuy158.rentstudio;
+package com.nguyenhuy158.rentstudio.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,6 +24,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.nguyenhuy158.rentstudio.R;
 import com.nguyenhuy158.rentstudio.model.User;
 import com.nguyenhuy158.rentstudio.myinterface.STRING;
 import com.shashank.sony.fancytoastlib.FancyToast;

@@ -1,14 +1,14 @@
 /*
- * Copyright (C) 12/21/22, 12:01 AM Nguyen Huy
+ * Copyright (C) 12/21/22, 10:20 PM Nguyen Huy
  *
- * DetailStudioActivity.java [lastModified: 12/21/22, 12:01 AM]
+ * DetailStudioActivity.java [lastModified: 12/21/22, 10:16 PM]
  *
  * Contact:
  * facebook: https://www.facebook.com/nguyenhuy158/
  * github: https://www.github.com/nguyenhuy158/
  */
 
-package com.nguyenhuy158.rentstudio;
+package com.nguyenhuy158.rentstudio.activity;
 
 import static android.content.ContentValues.TAG;
 
@@ -27,6 +27,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.nguyenhuy158.rentstudio.R;
 import com.nguyenhuy158.rentstudio.model.Common;
 import com.nguyenhuy158.rentstudio.model.Request;
 import com.nguyenhuy158.rentstudio.model.Studio;

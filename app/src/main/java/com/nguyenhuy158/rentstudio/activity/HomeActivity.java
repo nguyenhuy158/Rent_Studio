@@ -1,25 +1,22 @@
 /*
- * Copyright (C) 12/20/22, 10:06 AM Nguyen Huy
+ * Copyright (C) 12/21/22, 10:21 PM Nguyen Huy
  *
- * HomeActivity.java [lastModified: 12/20/22, 10:06 AM]
+ * HomeActivity.java [lastModified: 12/21/22, 10:16 PM]
  *
  * Contact:
  * facebook: https://www.facebook.com/nguyenhuy158/
  * github: https://www.github.com/nguyenhuy158/
  */
 
-package com.nguyenhuy158.rentstudio;
+package com.nguyenhuy158.rentstudio.activity;
 
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.util.Log;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
@@ -29,8 +26,11 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.nguyenhuy158.rentstudio.R;
+import com.nguyenhuy158.rentstudio.fragment.RewardFragment;
+import com.nguyenhuy158.rentstudio.fragment.UserFragment;
+import com.nguyenhuy158.rentstudio.fragment.AccountFragment;
 import com.nguyenhuy158.rentstudio.myinterface.STRING;
-import com.shashank.sony.fancytoastlib.FancyToast;
 
 public class HomeActivity extends AppCompatActivity {
 	boolean doubleBackToExitPressedOnce = false;

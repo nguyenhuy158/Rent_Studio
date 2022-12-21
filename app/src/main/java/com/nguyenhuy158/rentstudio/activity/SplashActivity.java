@@ -1,14 +1,14 @@
 /*
- * Copyright (C) 12/21/22, 6:36 PM Nguyen Huy
+ * Copyright (C) 12/21/22, 10:21 PM Nguyen Huy
  *
- * SplashActivity.java [lastModified: 12/21/22, 6:33 PM]
+ * SplashActivity.java [lastModified: 12/21/22, 10:16 PM]
  *
  * Contact:
  * facebook: https://www.facebook.com/nguyenhuy158/
  * github: https://www.github.com/nguyenhuy158/
  */
 
-package com.nguyenhuy158.rentstudio;
+package com.nguyenhuy158.rentstudio.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,6 +16,7 @@ import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.nguyenhuy158.rentstudio.R;
 import com.nguyenhuy158.rentstudio.myinterface.STRING;
 
 public class SplashActivity extends AppCompatActivity {

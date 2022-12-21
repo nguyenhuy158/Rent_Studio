@@ -1,14 +1,14 @@
 /*
- * Copyright (C) 12/21/22, 5:49 PM Nguyen Huy
+ * Copyright (C) 12/21/22, 10:20 PM Nguyen Huy
  *
- * CardFragment.java [lastModified: 12/21/22, 5:49 PM]
+ * CartFragment.java [lastModified: 12/21/22, 10:16 PM]
  *
  * Contact:
  * facebook: https://www.facebook.com/nguyenhuy158/
  * github: https://www.github.com/nguyenhuy158/
  */
 
-package com.nguyenhuy158.rentstudio;
+package com.nguyenhuy158.rentstudio.fragment;
 
 import android.os.Bundle;
 
@@ -17,6 +17,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.nguyenhuy158.rentstudio.R;
 
 /**
  * A simple {@link Fragment} subclass.

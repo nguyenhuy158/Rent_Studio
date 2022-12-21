@@ -1,14 +1,14 @@
 /*
- * Copyright (C) 12/21/22, 2:51 PM Nguyen Huy
+ * Copyright (C) 12/21/22, 10:21 PM Nguyen Huy
  *
- * OrderStatusActivity.java [lastModified: 12/21/22, 2:51 PM]
+ * OrderStatusActivity.java [lastModified: 12/21/22, 10:16 PM]
  *
  * Contact:
  * facebook: https://www.facebook.com/nguyenhuy158/
  * github: https://www.github.com/nguyenhuy158/
  */
 
-package com.nguyenhuy158.rentstudio;
+package com.nguyenhuy158.rentstudio.activity;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -25,6 +25,8 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.nguyenhuy158.rentstudio.R;
+import com.nguyenhuy158.rentstudio.fixbug.WrapContentLinearLayoutManager;
 import com.nguyenhuy158.rentstudio.model.Common;
 import com.nguyenhuy158.rentstudio.model.Request;
 import com.nguyenhuy158.rentstudio.myinterface.STRING;

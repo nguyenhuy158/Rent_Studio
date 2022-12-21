@@ -1,14 +1,14 @@
 /*
- * Copyright (C) 12/21/22, 12:11 AM Nguyen Huy
+ * Copyright (C) 12/21/22, 10:21 PM Nguyen Huy
  *
- * StudioList.java [lastModified: 12/21/22, 12:11 AM]
+ * StudioListActivity.java [lastModified: 12/21/22, 10:16 PM]
  *
  * Contact:
  * facebook: https://www.facebook.com/nguyenhuy158/
  * github: https://www.github.com/nguyenhuy158/
  */
 
-package com.nguyenhuy158.rentstudio;
+package com.nguyenhuy158.rentstudio.activity;
 
 import static android.content.ContentValues.TAG;
 
@@ -29,11 +29,13 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.nguyenhuy158.rentstudio.R;
+import com.nguyenhuy158.rentstudio.fixbug.WrapContentLinearLayoutManager;
 import com.nguyenhuy158.rentstudio.model.Studio;
 import com.nguyenhuy158.rentstudio.myinterface.STRING;
 import com.nguyenhuy158.rentstudio.viewholder.StudioViewHolder;
 
-public class StudioList extends AppCompatActivity {
+public class StudioListActivity extends AppCompatActivity {
 	String                                            CategoryId       = "";
 	RecyclerView                                      recyclerView;
 	FirebaseRecyclerAdapter<Studio, StudioViewHolder> adapter;
@@ -94,7 +96,7 @@ public class StudioList extends AppCompatActivity {
 				holder.itemView.setOnClickListener(new View.OnClickListener() {
 					@Override
 					public void onClick(View v) {
-						Intent intent = new Intent(StudioList.this,
+						Intent intent = new Intent(StudioListActivity.this,
 						                           DetailStudioActivity.class);
 						intent.putExtra(STRING.KEY_STUDIO_ID, adapter
 								.getRef(holder.getAdapterPosition()).getKey());

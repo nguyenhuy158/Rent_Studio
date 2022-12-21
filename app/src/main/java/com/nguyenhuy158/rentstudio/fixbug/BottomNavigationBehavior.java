@@ -1,14 +1,14 @@
 /*
- * Copyright (C) 12/20/22, 10:57 AM Nguyen Huy
+ * Copyright (C) 12/21/22, 10:22 PM Nguyen Huy
  *
- * BottomNavigationBehavior.java [lastModified: 12/20/22, 10:57 AM]
+ * BottomNavigationBehavior.java [lastModified: 12/20/22, 11:01 AM]
  *
  * Contact:
  * facebook: https://www.facebook.com/nguyenhuy158/
  * github: https://www.github.com/nguyenhuy158/
  */
 
-package com.nguyenhuy158.rentstudio;
+package com.nguyenhuy158.rentstudio.fixbug;
 
 import android.content.Context;
 import android.util.AttributeSet;
