@@ -84,7 +84,7 @@ public class DetailStudioActivity extends AppCompatActivity
 			public void onDataChange(@NonNull DataSnapshot snapshot) {
 				currentStudio = snapshot.getValue(Studio.class);
 				Log.d(TAG,
-				      "onDataChange: " + currentStudio + " " + currentStudio.getPrice());
+				      "onDataChange: detail ==>" + currentStudio + " " + currentStudio.getPrice() + " name " + currentStudio.getName());
 				Locale locale = new Locale(STRING.language_code,
 				                           STRING.country_code);
 				NumberFormat numberFormat = NumberFormat.getCurrencyInstance(
@@ -93,6 +93,8 @@ public class DetailStudioActivity extends AppCompatActivity
 						numberFormat.format(currentStudio.getPrice()));
 				
 				toolbarStudioName.setTitle(currentStudio.getName());
+				Log.d(TAG,
+				      "onDataChange: name " + toolbarStudioName.getTitle() + " " + " name " + currentStudio.getName());
 				Picasso.get().load(currentStudio.getThumbnailUrl()).into(
 						imageViewStudioThumbnail);
 			}
