@@ -15,6 +15,16 @@ public class Studio {
 	private String name;
 	private int    price;
 	private String thumbnailUrl;
+	private String description;
+	
+	public Studio(String categoryId, String name, int price,
+	              String thumbnailUrl, String description) {
+		CategoryId        = categoryId;
+		this.name         = name;
+		this.price        = price;
+		this.thumbnailUrl = thumbnailUrl;
+		this.description  = description;
+	}
 	
 	public Studio(String categoryId, String name, int price,
 	              String thumbnailUrl) {
@@ -31,6 +41,14 @@ public class Studio {
 		CategoryId = categoryId;
 		this.name  = name;
 		this.price = price;
+	}
+	
+	public String getDescription() {
+		return description;
+	}
+	
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	
 	public String getThumbnailUrl() {

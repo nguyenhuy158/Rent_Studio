@@ -74,7 +74,9 @@ public class DetailStudioActivity extends AppCompatActivity
 	
 	private void loadStudio() {
 		TextView textViewStudioPrice = findViewById(R.id.textViewStudioPrice);
-		Toolbar  toolbarStudioName   = findViewById(R.id.toolbarStudioName);
+		TextView textViewStudioDescription = findViewById(
+				R.id.textViewStudioDescription);
+		Toolbar toolbarStudioName = findViewById(R.id.toolbarStudioName);
 		ImageView imageViewStudioThumbnail = findViewById(
 				R.id.imageViewStudioThumbnail);
 		
@@ -91,8 +93,12 @@ public class DetailStudioActivity extends AppCompatActivity
 						locale);
 				textViewStudioPrice.setText(
 						numberFormat.format(currentStudio.getPrice()));
+				textViewStudioDescription.setText(
+						currentStudio.getDescription());
+				setSupportActionBar(toolbarStudioName);
+				getSupportActionBar().setTitle(currentStudio.getName());
+				// toolbarStudioName.setTitle();
 				
-				toolbarStudioName.setTitle(currentStudio.getName());
 				Log.d(TAG,
 				      "onDataChange: name " + toolbarStudioName.getTitle() + " " + " name " + currentStudio.getName());
 				Picasso.get().load(currentStudio.getThumbnailUrl()).into(
@@ -124,10 +130,12 @@ public class DetailStudioActivity extends AppCompatActivity
 		                                             new Locale(
 				                                             STRING.language_code,
 				                                             STRING.country_code));
-		Request request = new Request(Common.getPhone(), currentStudio,
+		
+		Request request = new Request(Common.getPhone(), StudioId,
 		                              dateFormat.format(date).toString(),
 		                              dateFormat.format(date).toString(),
-		                              dateFormat.format(date).toString(), 1,
+		                              dateFormat.format(date).toString(),
+		                              1,
 		                              currentStudio.getPrice());
 		
 		FirebaseDatabase.getInstance().getReference(STRING.REQUEST_TABLE).push()

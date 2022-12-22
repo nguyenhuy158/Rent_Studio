@@ -54,7 +54,8 @@ public class OrderStatusActivity extends AppCompatActivity {
 	
 	private void loadOrders() {
 		Query query = FirebaseDatabase.getInstance().getReference(
-				STRING.REQUEST_TABLE).orderByChild(STRING.KEY_PHONE).equalTo(Common.getPhone());
+				STRING.REQUEST_TABLE).orderByChild(STRING.KEY_PHONE).equalTo(
+				Common.getPhone());
 		FirebaseRecyclerOptions<Request> firebaseRecyclerOptions
 				= new FirebaseRecyclerOptions.Builder<Request>().setQuery(query,
 				                                                          Request.class)
@@ -81,13 +82,13 @@ public class OrderStatusActivity extends AppCompatActivity {
 				if (holder == null) {return;}
 				holder.textViewOrderPrice.setText(model.getTotal() + "");
 				holder.textViewOrderStudioName.setText(
-						model.getStudio().getName() + "");
+						model.getStudioId() + "");
 				holder.textViewOrderTime.setText(model.getBookTime() + "");
 				holder.itemView.setOnClickListener(new View.OnClickListener() {
 					@Override
 					public void onClick(View v) {
 						Log.d(STRING.TAG,
-						      "onClick: " + model.getStudio().getName());
+						      "onClick: " + model.getStudioId());
 					}
 				});
 			}

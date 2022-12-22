@@ -14,7 +14,7 @@ import com.nguyenhuy158.rentstudio.myinterface.STRING;
 
 public class Request {
 	String phone;
-	Studio studio;
+	String studioId;
 	String bookTime;
 	String startDate;
 	String endDate;
@@ -22,16 +22,29 @@ public class Request {
 	int    total;
 	int    status;
 	
-	public Request(String phone, Studio studio, String bookTime,
+	public Request(String phone, String studioId, String bookTime,
 	               String startDate, String endDate, int totalHour, int total) {
 		this.phone     = phone;
-		this.studio    = studio;
+		this.studioId  = studioId;
 		this.bookTime  = bookTime;
 		this.startDate = startDate;
 		this.endDate   = endDate;
 		this.totalHour = totalHour;
 		this.total     = total;
 		this.status    = STRING.ORDER_WAITING;
+	}
+	
+	public Request(String phone, String studioId, String bookTime,
+	               String startDate, String endDate, int totalHour, int total,
+	               int status) {
+		this.phone     = phone;
+		this.studioId  = studioId;
+		this.bookTime  = bookTime;
+		this.startDate = startDate;
+		this.endDate   = endDate;
+		this.totalHour = totalHour;
+		this.total     = total;
+		this.status    = status;
 	}
 	
 	public Request() {
@@ -53,12 +66,12 @@ public class Request {
 		this.status = status;
 	}
 	
-	public Studio getStudio() {
-		return studio;
+	public String getStudioId() {
+		return studioId;
 	}
 	
-	public void setStudio(Studio studio) {
-		this.studio = studio;
+	public void setStudioId(String studioId) {
+		this.studioId = studioId;
 	}
 	
 	public String getBookTime() {

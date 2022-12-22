@@ -106,8 +106,8 @@ public class HomeActivity extends AppCompatActivity {
 				                                  R.id.userFragment).build();
 		NavController navController = Navigation.findNavController(this,
 		                                                           R.id.frame_container);
-		NavigationUI.setupActionBarWithNavController(this, navController,
-		                                             appBarConfiguration);
+		// NavigationUI.setupActionBarWithNavController(this, navController,
+		//                                              appBarConfiguration);
 		NavigationUI.setupWithNavController(navigation, navController);
 	}
 	
