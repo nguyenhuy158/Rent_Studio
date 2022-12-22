@@ -22,19 +22,21 @@ public interface STRING {
 	String REQUEST_TABLE  = "Request";
 	
 	String KEY_CATEGORY_ID = "CategoryId";
+	String KEY_NAME = "name";
 	String KEY_STUDIO_ID   = "StudioId";
-	String    KEY_PHONE = "phone";
+	String KEY_PHONE       = "phone";
 	
 	
-	int    ORDER_CANCELLED = -1;
-	int    ORDER_WAITING   = 0;
-	int    ORDER_DONE      = 2;
-	int    ORDER_SUCCESS   = 1;
+	int ORDER_CANCELLED = -1;
+	int ORDER_WAITING   = 0;
+	int ORDER_DONE      = 2;
+	int ORDER_SUCCESS   = 1;
 	
 	//	debug
-	String TAG      = "ContentValues";
-	String fragment     = "fragmentt";
-	String    message_exit = "Please click BACK again to exit";
-	long delayMillis       = 2000;
-	long delayMillisSplashScreen       = 3000;
+	String       TAG                     = "ContentValues";
+	String       fragment                = "fragmentt";
+	String       message_exit            = "Please click BACK again to exit";
+	long         delayMillis             = 2000;
+	long         delayMillisSplashScreen = 3000;
+	CharSequence hint_search             = "Search studio";
 }

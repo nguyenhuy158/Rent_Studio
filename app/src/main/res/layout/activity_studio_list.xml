@@ -30,7 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:mt_hint="@string/hint_search"
-        app:mt_maxSuggestionsCount="10"
+        app:mt_maxSuggestionsCount="3"
         app:mt_speechMode="false"
         />
     
