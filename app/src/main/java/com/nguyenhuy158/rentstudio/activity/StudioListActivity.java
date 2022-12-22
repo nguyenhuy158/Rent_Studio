@@ -77,6 +77,7 @@ public class StudioListActivity extends AppCompatActivity {
 		materialSearchBar = findViewById(R.id.searchBar);
 		loadSuggest();
 		materialSearchBar.setCardViewElevation(10);
+		materialSearchBar.setMaxSuggestionCount(3);
 		materialSearchBar.setHint(STRING.hint_search);
 		materialSearchBar.addTextChangeListener(new TextWatcher() {
 			@Override
@@ -124,8 +125,7 @@ public class StudioListActivity extends AppCompatActivity {
 						                              .orderByChild(
 								                              STRING.KEY_NAME)
 						                              .startAt(text.toString())
-						                              .endAt(text.toString() + "\uf8ff")
-								;
+						                              .endAt(text.toString() + "\uf8ff");
 						FirebaseRecyclerOptions<Studio> firebaseRecyclerOptions
 								= new FirebaseRecyclerOptions.Builder<Studio>()
 								.setQuery(query, Studio.class).build();
@@ -164,7 +164,7 @@ public class StudioListActivity extends AppCompatActivity {
 														DetailStudioActivity.class);
 												intent.putExtra(
 														STRING.KEY_STUDIO_ID,
-														adapter
+														searchAdapter
 																.getRef(holder.getAdapterPosition())
 																.getKey());
 												startActivity(intent);
@@ -187,23 +187,23 @@ public class StudioListActivity extends AppCompatActivity {
 	}
 	
 	private void loadSuggest() {
-		FirebaseDatabase.getInstance().getReference(STRING.STUDIO_TABLE)
-		                .orderByChild(STRING.KEY_CATEGORY_ID).equalTo("")
-		                .addValueEventListener(new ValueEventListener() {
-			                @Override
-			                public void onDataChange(
-					                @NonNull DataSnapshot snapshot) {
-				                Log.d(TAG,
-				                      "onDataChange: count++ " + snapshot.getChildrenCount());
-				
-			                }
-			
-			                @Override
-			                public void onCancelled(
-					                @NonNull DatabaseError error) {
-				
-			                }
-		                });
+		// FirebaseDatabase.getInstance().getReference(STRING.STUDIO_TABLE)
+		//                 .orderByChild(STRING.KEY_CATEGORY_ID).equalTo("")
+		//                 .addValueEventListener(new ValueEventListener() {
+		// 	                @Override
+		// 	                public void onDataChange(
+		// 			                @NonNull DataSnapshot snapshot) {
+		// 		                Log.d(TAG,
+		// 		                      "onDataChange: count++ " + snapshot.getChildrenCount());
+		//
+		// 	                }
+		//
+		// 	                @Override
+		// 	                public void onCancelled(
+		// 			                @NonNull DatabaseError error) {
+		//
+		// 	                }
+		//                 });
 		
 		FirebaseDatabase.getInstance().getReference(STRING.STUDIO_TABLE)
 		                .orderByChild(STRING.KEY_CATEGORY_ID)
@@ -223,7 +223,11 @@ public class StudioListActivity extends AppCompatActivity {
 				                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
 					                Studio studio = dataSnapshot.getValue(
 							                Studio.class);
-					                suggestList.add(studio.getName());
+					                if (studio.getCategoryId().equals(
+							                CategoryId)) {
+						                suggestList.add(studio.getName());
+					                }
+					
 					                Log.d(TAG,
 					                      "onDataChange: category id " + studio.getCategoryId());
 					                Log.d(TAG,
@@ -306,6 +310,8 @@ public class StudioListActivity extends AppCompatActivity {
 	public void onStop() {
 		super.onStop();
 		adapter.stopListening();
-		searchAdapter.stopListening();
+		if (searchAdapter != null) {
+			searchAdapter.stopListening();
+		}
 	}
 }
