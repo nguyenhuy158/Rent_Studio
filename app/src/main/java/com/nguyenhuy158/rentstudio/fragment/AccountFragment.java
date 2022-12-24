@@ -1,7 +1,7 @@
 /*
- * Copyright (C) 12/21/22, 10:21 PM Nguyen Huy
+ * Copyright (C) 12/24/22, 12:53 PM Nguyen Huy
  *
- * UserFragment.java [lastModified: 12/21/22, 10:16 PM]
+ * AccountFragment.java [lastModified: 12/24/22, 12:53 PM]
  *
  * Contact:
  * facebook: https://www.facebook.com/nguyenhuy158/
@@ -15,7 +15,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -23,6 +22,7 @@ import androidx.fragment.app.Fragment;
 import com.nguyenhuy158.rentstudio.R;
 import com.nguyenhuy158.rentstudio.activity.OrderStatusActivity;
 import com.nguyenhuy158.rentstudio.activity.WelcomeActivity;
+import com.nguyenhuy158.rentstudio.model.Common;
 
 public class AccountFragment extends Fragment implements View.OnClickListener {
 	
@@ -45,6 +45,12 @@ public class AccountFragment extends Fragment implements View.OnClickListener {
 	                         Bundle savedInstanceState) {
 		View   view               = inflater.inflate(R.layout.fragment_account,
 		                                             container, false);
+		TextView textViewUserPhone = view.findViewById(R.id.textViewUserPhone);
+		TextView textViewUserName = view.findViewById(R.id.textViewUserName);
+		textViewUserPhone.setText(Common.getUser().getPhone());
+		textViewUserName.setText(Common.getUser().getUseName());
+		
+		
 		TextView buttonOrderHistory = view.findViewById(R.id.buttonOrderHistory);
 		TextView buttonLogout       = view.findViewById(R.id.buttonLogout);
 		buttonOrderHistory.setOnClickListener(this);

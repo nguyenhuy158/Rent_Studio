@@ -26,6 +26,16 @@
         android:orientation="vertical"
         >
         
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="@dimen/gear_size"
+            android:layout_height="@dimen/gear_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/setting_gears"
+            />
+        
         <LinearLayout
             android:id="@+id/layoutUsername"
             android:layout_width="match_parent"
@@ -93,7 +103,7 @@
                 
                 <!--                 order setting -->
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     >
@@ -110,6 +120,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="@dimen/small_margin"
+                        android:layout_weight="1"
                         android:background="@android:color/transparent"
                         android:text="Order history"
                         />
@@ -127,7 +138,7 @@
                 
                 <!--                 Language settings -->
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     >
@@ -143,6 +154,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="@dimen/small_margin"
+                        android:layout_weight="1"
                         android:background="@android:color/transparent"
                         android:text="Language"
                         />
@@ -160,7 +172,7 @@
                 
                 <!--                 Terms & Privacy Policy settings -->
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     >
@@ -176,6 +188,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="@dimen/small_margin"
+                        android:layout_weight="1"
                         android:background="@android:color/transparent"
                         android:text="Terms &amp; Privacy Policy"
                         />
@@ -207,9 +220,9 @@
                     <TextView
                         style="@style/TextAppearance.MaterialComponents.Subtitle2"
                         android:layout_width="0dp"
-                        android:layout_weight="1"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="@dimen/small_margin"
+                        android:layout_weight="1"
                         android:background="@android:color/transparent"
                         android:text="Version"
                         />
@@ -218,8 +231,8 @@
                         style="@style/TextAppearance.MaterialComponents.Subtitle2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="1.1.0"
                         android:layout_marginHorizontal="@dimen/small_margin"
+                        android:text="1.1.0"
                         />
                 </LinearLayout >
                 
@@ -235,7 +248,7 @@
                 
                 <!--                 logout -->
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:gravity="center_vertical"
@@ -253,6 +266,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="@dimen/small_margin"
+                        android:layout_weight="1"
                         android:background="@android:color/transparent"
                         android:text="Logout"
                         />

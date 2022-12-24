@@ -1,7 +1,7 @@
 /*
- * Copyright (C) 12/21/22, 10:20 PM Nguyen Huy
+ * Copyright (C) 12/24/22, 12:53 PM Nguyen Huy
  *
- * CartFragment.java [lastModified: 12/21/22, 10:16 PM]
+ * RewardFragment.java [lastModified: 12/24/22, 12:53 PM]
  *
  * Contact:
  * facebook: https://www.facebook.com/nguyenhuy158/

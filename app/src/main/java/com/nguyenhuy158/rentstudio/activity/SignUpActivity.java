@@ -76,7 +76,8 @@ public class SignUpActivity extends AppCompatActivity
 					
 				} else {
 					
-					User user = new User(editTextPassword.getText().toString());
+					User user = new User(editTextPassword.getText().toString(),
+					                     editTextUsername.getText().toString());
 					databaseReference.child(
 							editTextUsername.getText().toString()).setValue(
 							user);
