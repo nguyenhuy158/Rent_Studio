@@ -45,6 +45,7 @@
     <color name="colorPrimaryDark" >#6539ba</color >
     <color name="colorAccent" >#FF4081</color >
     <color name="bgBottomNavigation" >#fe485a</color >
+    <color name="divider" >#80000000</color >
     
     <array name="rainbow" >
         <item >#FFF60000</item >

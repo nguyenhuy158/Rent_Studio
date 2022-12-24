@@ -29,9 +29,9 @@ import androidx.navigation.ui.NavigationUI;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.nguyenhuy158.rentstudio.R;
+import com.nguyenhuy158.rentstudio.fragment.HomeFragment;
+import com.nguyenhuy158.rentstudio.fragment.SearchFragment;
 import com.nguyenhuy158.rentstudio.fragment.AccountFragment;
-import com.nguyenhuy158.rentstudio.fragment.RewardFragment;
-import com.nguyenhuy158.rentstudio.fragment.UserFragment;
 import com.nguyenhuy158.rentstudio.myinterface.STRING;
 import com.shashank.sony.fancytoastlib.FancyToast;
 
@@ -48,17 +48,17 @@ public class HomeActivity extends AppCompatActivity {
 			switch (item.getItemId()) {
 				case R.id.accountFragment:
 					toolbar.setTitle("Account");
-					fragment = new AccountFragment();
+					fragment = new HomeFragment();
 					loadFragment(fragment);
 					return true;
 				case R.id.rewardFragment:
 					toolbar.setTitle("Reward");
-					fragment = new RewardFragment();
+					fragment = new SearchFragment();
 					loadFragment(fragment);
 					return true;
 				case R.id.userFragment:
 					toolbar.setTitle("Profile");
-					fragment = new UserFragment();
+					fragment = new AccountFragment();
 					loadFragment(fragment);
 					return true;
 			}
@@ -74,12 +74,12 @@ public class HomeActivity extends AppCompatActivity {
 			switch (item.getItemId()) {
 				case R.id.accountFragment:
 					toolbar.setTitle("Account");
-					fragment = new AccountFragment();
+					fragment = new HomeFragment();
 					loadFragment(fragment);
 					return true;
 				case R.id.rewardFragment:
 					toolbar.setTitle("Reward");
-					fragment = new RewardFragment();
+					fragment = new SearchFragment();
 					loadFragment(fragment);
 					return true;
 			}
@@ -129,7 +129,7 @@ public void onBackPressed() {
 	// get first child fragment
 	Fragment fragment = fragmentHost.getChildFragmentManager()
 	                                .getFragments().get(0);
-	if (fragment instanceof AccountFragment) {
+	if (fragment instanceof HomeFragment) {
 		Log.d(STRING.TAG, "onBackPressed: home");
 		if (doubleBackToExitPressedOnce) {
 			super.onBackPressed();

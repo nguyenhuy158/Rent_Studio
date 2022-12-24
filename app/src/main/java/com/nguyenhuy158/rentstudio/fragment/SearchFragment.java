@@ -1,7 +1,7 @@
 /*
- * Copyright (C) 12/21/22, 10:20 PM Nguyen Huy
+ * Copyright (C) 12/21/22, 10:21 PM Nguyen Huy
  *
- * CartFragment.java [lastModified: 12/21/22, 10:16 PM]
+ * RewardFragment.java [lastModified: 12/20/22, 10:33 AM]
  *
  * Contact:
  * facebook: https://www.facebook.com/nguyenhuy158/
@@ -20,15 +20,8 @@ import android.view.ViewGroup;
 
 import com.nguyenhuy158.rentstudio.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link CartFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class CartFragment extends Fragment {
+public class SearchFragment extends Fragment {
 	
-	// TODO: Rename parameter arguments, choose names that match
-	// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 	private static final String ARG_PARAM1 = "param1";
 	private static final String ARG_PARAM2 = "param2";
 	
@@ -36,22 +29,12 @@ public class CartFragment extends Fragment {
 	private String mParam1;
 	private String mParam2;
 	
-	public CartFragment() {
-		// Required empty public constructor
+	public SearchFragment() {
 	}
 	
-	/**
-	 * Use this factory method to create a new instance of
-	 * this fragment using the provided parameters.
-	 *
-	 * @param param1 Parameter 1.
-	 * @param param2 Parameter 2.
-	 * @return A new instance of fragment CardFragment.
-	 */
-	// TODO: Rename and change types and number of parameters
-	public static CartFragment newInstance(String param1, String param2) {
-		CartFragment fragment = new CartFragment();
-		Bundle       args     = new Bundle();
+	public static SearchFragment newInstance(String param1, String param2) {
+		SearchFragment fragment = new SearchFragment();
+		Bundle         args     = new Bundle();
 		args.putString(ARG_PARAM1, param1);
 		args.putString(ARG_PARAM2, param2);
 		fragment.setArguments(args);
@@ -71,6 +54,6 @@ public class CartFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	                         Bundle savedInstanceState) {
 		// Inflate the layout for this fragment
-		return inflater.inflate(R.layout.fragment_rewards, container, false);
+		return inflater.inflate(R.layout.fragment_search, container, false);
 	}
 }

@@ -10,32 +10,257 @@
 
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.UserFragment"
+    tools:context=".fragment.AccountFragment"
     >
     
-    <LinearLayout
+    
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="@dimen/large_margin"
         android:gravity="center"
         android:orientation="vertical"
         >
         
-        <Button
-            android:id="@+id/buttonOrderHistory"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/layoutUsername"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Order history"
-            />
-        <Button
-            android:id="@+id/buttonLogout"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            >
+            
+            <TextView
+                android:id="@+id/textViewUserName"
+                style="@style/TextAppearance.MaterialComponents.Headline6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NguyenHuy"
+                />
+            
+            <TextView
+                android:id="@+id/textViewUserPhone"
+                style="@style/TextAppearance.MaterialComponents.Subtitle1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0000000000"
+                />
+        </LinearLayout >
+        
+        <View
+            android:id="@+id/divider"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Logout"
+            android:layout_height="1dp"
+            android:layout_margin="@dimen/large_margin"
+            android:background="@color/divider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutUsername"
             />
-    
-    </LinearLayout >
+        
+        <LinearLayout
+            android:id="@+id/layoutSetting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/large_margin"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider"
+            >
+            
+            <TextView
+                style="@style/TextAppearance.MaterialComponents.Headline6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/small_margin"
+                android:text="Setting"
+                />
+            
+            <!--             setting layout -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small_margin"
+                android:orientation="vertical"
+                >
+                
+                <!--                 order setting -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    >
+                    
+                    <androidx.constraintlayout.utils.widget.ImageFilterView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_round_history_24"
+                        />
+                    
+                    <TextView
+                        android:id="@+id/buttonOrderHistory"
+                        style="@style/TextAppearance.MaterialComponents.Subtitle2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/small_margin"
+                        android:background="@android:color/transparent"
+                        android:text="Order history"
+                        />
+                </LinearLayout >
+                
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="@dimen/medium_margin"
+                    android:background="@color/divider"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutUsername"
+                    />
+                
+                <!--                 Language settings -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    >
+                    
+                    <androidx.constraintlayout.utils.widget.ImageFilterView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_round_language_24"
+                        />
+                    
+                    <TextView
+                        style="@style/TextAppearance.MaterialComponents.Subtitle2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/small_margin"
+                        android:background="@android:color/transparent"
+                        android:text="Language"
+                        />
+                </LinearLayout >
+                
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="@dimen/medium_margin"
+                    android:background="@color/divider"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutUsername"
+                    />
+                
+                <!--                 Terms & Privacy Policy settings -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    >
+                    
+                    <androidx.constraintlayout.utils.widget.ImageFilterView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_round_policy_24"
+                        />
+                    
+                    <TextView
+                        style="@style/TextAppearance.MaterialComponents.Subtitle2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/small_margin"
+                        android:background="@android:color/transparent"
+                        android:text="Terms &amp; Privacy Policy"
+                        />
+                </LinearLayout >
+                
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="@dimen/medium_margin"
+                    android:background="@color/divider"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutUsername"
+                    />
+                
+                <!--                 Version settings -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    >
+                    
+                    <androidx.constraintlayout.utils.widget.ImageFilterView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_round_file_download_24"
+                        />
+                    
+                    <TextView
+                        style="@style/TextAppearance.MaterialComponents.Subtitle2"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/small_margin"
+                        android:background="@android:color/transparent"
+                        android:text="Version"
+                        />
+                    
+                    <TextView
+                        style="@style/TextAppearance.MaterialComponents.Subtitle2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1.1.0"
+                        android:layout_marginHorizontal="@dimen/small_margin"
+                        />
+                </LinearLayout >
+                
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="@dimen/medium_margin"
+                    android:background="@color/divider"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutUsername"
+                    />
+                
+                <!--                 logout -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    >
+                    
+                    <androidx.constraintlayout.utils.widget.ImageFilterView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_round_logout_24"
+                        />
+                    
+                    <TextView
+                        android:id="@+id/buttonLogout"
+                        style="@style/TextAppearance.MaterialComponents.Subtitle2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/small_margin"
+                        android:background="@android:color/transparent"
+                        android:text="Logout"
+                        />
+                </LinearLayout >
+            
+            </LinearLayout >
+        
+        </LinearLayout >
+    </androidx.constraintlayout.widget.ConstraintLayout >
 
 </FrameLayout >
