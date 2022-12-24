@@ -26,6 +26,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
+import com.denzcoskun.imageslider.interfaces.ItemClickListener;
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -36,9 +37,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.nguyenhuy158.rentstudio.R;
+import com.nguyenhuy158.rentstudio.activity.DetailStudioActivity;
 import com.nguyenhuy158.rentstudio.activity.StudioListActivity;
 import com.nguyenhuy158.rentstudio.fixbug.WrapContentLinearLayoutManager;
 import com.nguyenhuy158.rentstudio.model.Category;
+import com.nguyenhuy158.rentstudio.model.Common;
 import com.nguyenhuy158.rentstudio.model.Studio;
 import com.nguyenhuy158.rentstudio.myinterface.STRING;
 import com.nguyenhuy158.rentstudio.viewholder.CategoryViewHolder;
@@ -96,7 +99,7 @@ public class HomeFragment extends Fragment {
 		// recyclerView.setHasFixedSize(true);
 		recyclerView.setLayoutManager(
 				new WrapContentLinearLayoutManager(getContext(),
-				                                   LinearLayoutManager.HORIZONTAL,
+				                                   LinearLayoutManager.VERTICAL,
 				                                   false));
 		getCategory();
 		
@@ -104,23 +107,12 @@ public class HomeFragment extends Fragment {
 	}
 	
 	private void imageSlider(View view) {
-		List<SlideModel> imageList = new ArrayList<>();
-		
-		imageList.add(new SlideModel("https://bit.ly/2YoJ77H",
-		                             "The animal " + "population decreased by 58 percent in 42 years.",
-		                             ScaleTypes.CENTER_CROP));
-		imageList.add(new SlideModel("https://bit.ly/2BteuF2",
-		                             "Elephants and " + "tigers may become extinct.",
-		                             ScaleTypes.CENTER_CROP));
-		imageList.add(new SlideModel("https://bit.ly/3fLJf72",
-		                             "And people do " + "that.",
-		                             ScaleTypes.CENTER_CROP));
-		imageList   = loadImageToSlider(imageList);
 		imageSlider = view.findViewById(R.id.image_slider);
-		imageSlider.setImageList(imageList);
+		loadImageToSlider();
+		
 	}
 	
-	private List<SlideModel> loadImageToSlider(List<SlideModel> imageList) {
+	private void loadImageToSlider() {
 		Query query = FirebaseDatabase.getInstance().getReference(
 				STRING.STUDIO_TABLE);
 		FirebaseRecyclerOptions<Studio> firebaseRecyclerOptions
@@ -132,16 +124,38 @@ public class HomeFragment extends Fragment {
 			                @Override
 			                public void onDataChange(
 					                @NonNull DataSnapshot snapshot) {
+				                List<SlideModel> imageList = new ArrayList<>();
+				                List<Studio> studioList = new ArrayList<>();
+				                List<String>     imageKeys = new ArrayList<>();
+				
 				                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
 					                Studio studio = dataSnapshot.getValue(
 							                Studio.class);
 					                Log.d(STRING.TAG,
 					                      "onDataChange: slider" + studio.getName());
+					                
+					                studioList.add(studio);
+					                imageKeys.add(dataSnapshot.getKey());
 					                imageList.add(new SlideModel(
 							                studio.getThumbnailUrl(),
 							                studio.getName(),
 							                ScaleTypes.CENTER_CROP));
 				                }
+				                imageSlider.setImageList(imageList);
+				                imageSlider.setItemClickListener(
+						                new ItemClickListener() {
+							                @Override
+							                public void onItemSelected(int i) {
+								                Intent intent = new Intent(
+										                getContext(),
+										                DetailStudioActivity.class);
+								                intent.putExtra(
+										                STRING.KEY_STUDIO_ID,
+										                imageKeys.get(i));
+								                startActivity(intent);
+												
+							                }
+						                });
 			                }
 			
 			                @Override
@@ -151,9 +165,6 @@ public class HomeFragment extends Fragment {
 			                }
 		                });
 		
-		recyclerView.setAdapter(adapter);
-		
-		return imageList;
 	}
 	
 	private void getCategory() {

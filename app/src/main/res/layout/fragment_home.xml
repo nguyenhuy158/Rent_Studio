@@ -22,7 +22,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/large_margin"
+        android:layout_margin="@dimen/medium_margin"
         >
         
         <com.airbnb.lottie.LottieAnimationView
@@ -54,17 +54,16 @@
             
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:layout_margin="16dp"
+                android:layout_height="200dp"
                 app:cardCornerRadius="6dp"
                 >
+                
                 <com.denzcoskun.imageslider.ImageSlider
                     android:id="@+id/image_slider"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     app:iss_auto_cycle="true"
                     app:iss_delay="0"
-                    app:iss_title_background="@android:color/holo_red_light"
                     app:iss_error_image="@drawable/error"
                     app:iss_period="1000"
                     app:iss_placeholder="@drawable/placeholder"
@@ -74,15 +73,28 @@
                     
                     />
             </androidx.cardview.widget.CardView >
-            <!--             recycler view -->
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView"
+            
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="@dimen/large_margin"
+                />
+            
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/item_category"
-                />
+                app:cardCornerRadius="6dp"
+                >
+                <!--             recycler view -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_category"
+                    />
+            </androidx.cardview.widget.CardView >
         </LinearLayout >
     </androidx.constraintlayout.widget.ConstraintLayout >
 </ScrollView >
