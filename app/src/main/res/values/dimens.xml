@@ -25,4 +25,5 @@
     <dimen name="small_radius" >16dp</dimen >
     <dimen name="linearlayout_width" >300dp</dimen >
     <dimen name="gear_size" >48dp</dimen >
+    <dimen name="large_elevation" >12dp</dimen >
 </resources>
