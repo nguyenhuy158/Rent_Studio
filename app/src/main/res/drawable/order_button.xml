@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (C) 12/24/22, 4:47 PM Nguyen Huy
+  ~
+  ~ order_button.xml [lastModified: 12/24/22, 4:47 PM]
+  ~
+  ~ Contact:
+  ~ facebook: https://www.facebook.com/nguyenhuy158/
+  ~ github: https://www.github.com/nguyenhuy158/
+  -->
+
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+       android:shape="rectangle"
+    >
+    <corners android:radius="10dp" />
+    <solid android:color="@color/white" />
+</shape >

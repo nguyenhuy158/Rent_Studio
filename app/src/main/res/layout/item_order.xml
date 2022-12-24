@@ -12,9 +12,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginVertical="@dimen/small_margin"
+    android:layout_marginTop="@dimen/small_margin"
     android:orientation="horizontal"
     android:weightSum="7"
+    android:background="@drawable/order_button"
     >
     
     <LinearLayout
@@ -51,27 +52,69 @@
         >
         
         <TextView
+            style="@style/TextAppearance.MaterialComponents.Subtitle2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingVertical="@dimen/small_margin"
             android:text="Waiting"
             />
         
-        
         <TextView
             android:id="@+id/textViewOrderStudioName"
+            style="@style/TextAppearance.MaterialComponents.Headline6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Name studio"
             />
         
-        <TextView
-            android:id="@+id/textViewOrderPrice"
-            android:layout_width="wrap_content"
+        <!--         total time -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="199,000"
-            />
+            android:layout_marginTop="@dimen/small_margin"
+            android:gravity="center"
+            >
+            
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_round_access_time_24"
+                />
+            
+            <TextView
+                android:id="@+id/textViewOrderTotalTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/small_margin"
+                android:layout_weight="1"
+                android:text="1 hour"
+                />
+        </LinearLayout >
+        
+        <!--         money -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:gravity="center"
+            >
+            
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_round_attach_money_24"
+                />
+            
+            <TextView
+                android:id="@+id/textViewOrderPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/small_margin"
+                android:layout_weight="1"
+                android:text="199,000"
+                />
+        </LinearLayout >
     </LinearLayout >
 
 
