@@ -104,6 +104,7 @@ public class DetailStudioActivity extends AppCompatActivity
 	private void bindUi() {
 		textViewOrderTime      = findViewById(R.id.textViewOrderTime);
 		textViewOrderStartDate = findViewById(R.id.textViewOrderStartDate);
+		Log.d(TAG, "bindUi: calendar" + Common.myCalendar.toString());
 		updateTime(textViewOrderTime, Common.myCalendar);
 		updateDate(textViewOrderStartDate, Common.myCalendar);
 	}
@@ -186,9 +187,9 @@ public class DetailStudioActivity extends AppCompatActivity
 				                                             STRING.country_code));
 		
 		Request request = new Request(Common.getPhone(), StudioId,
-		                              timeFormat.format(date).toString(),
-		                              dateFormat.format(date).toString(),
-		                              dateFormat.format(date).toString(), 1,
+		                              textViewOrderTime.getText().toString(),
+		                              textViewOrderStartDate.getText().toString(),
+		                              textViewOrderStartDate.getText().toString(), STRING.DEFAULT_HOUR,
 		                              currentStudio.getPrice());
 		
 		FirebaseDatabase.getInstance().getReference(STRING.REQUEST_TABLE).push()

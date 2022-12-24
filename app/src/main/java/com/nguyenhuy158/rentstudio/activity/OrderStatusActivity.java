@@ -15,6 +15,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,20 +24,31 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.nguyenhuy158.rentstudio.R;
 import com.nguyenhuy158.rentstudio.fixbug.WrapContentLinearLayoutManager;
 import com.nguyenhuy158.rentstudio.model.Common;
 import com.nguyenhuy158.rentstudio.model.Request;
+import com.nguyenhuy158.rentstudio.model.Studio;
 import com.nguyenhuy158.rentstudio.myinterface.STRING;
 import com.nguyenhuy158.rentstudio.viewholder.OrderViewHolder;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class OrderStatusActivity extends AppCompatActivity {
 	
 	
 	RecyclerView                                      orderList;
 	FirebaseRecyclerAdapter<Request, OrderViewHolder> adapter;
+	List<Studio>                                      studioList
+			                                                        = new ArrayList<>();
+	List<String>                                      keyStudioList
+			                                                        = new ArrayList<>();
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +61,29 @@ public class OrderStatusActivity extends AppCompatActivity {
 		                                                              false));
 		
 		loadOrders();
-		
+		loadStudioList();
+	}
+	
+	private void loadStudioList() {
+		FirebaseDatabase.getInstance().getReference(STRING.STUDIO_TABLE)
+		                .addValueEventListener(new ValueEventListener() {
+			                @Override
+			                public void onDataChange(
+					                @NonNull DataSnapshot snapshot) {
+				                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+					                Studio studio = dataSnapshot.getValue(
+							                Studio.class);
+					                studioList.add(studio);
+					                keyStudioList.add(snapshot.getKey());
+				                }
+			                }
+			
+			                @Override
+			                public void onCancelled(
+					                @NonNull DatabaseError error) {
+				
+			                }
+		                });
 	}
 	
 	private void loadOrders() {
@@ -82,19 +116,60 @@ public class OrderStatusActivity extends AppCompatActivity {
 				if (holder == null) {return;}
 				holder.textViewOrderPrice.setText(model.getTotal() + "");
 				holder.textViewOrderStudioName.setText(
-						model.getStudioId() + "");
-				holder.textViewOrderTime.setText(model.getBookTime() + "");
+						getStudioName(model.getStudioId()));
+				holder.textViewOrderTime.setText(model.getBookTime() + " hour");
+				holder.textViewOrderStartDate.setText(
+						model.getStartDate() + "");
+				holder.textViewOrderStatus.setText(
+						getStatus(model.getStatus()));
+				changeColorStatus(holder.textViewOrderStatus,
+				                  model.getStatus());
+				holder.textViewOrderTotalTime.setText(
+						model.getTotalHour() + "");
+				
 				holder.itemView.setOnClickListener(new View.OnClickListener() {
 					@Override
 					public void onClick(View v) {
-						Log.d(STRING.TAG,
-						      "onClick: " + model.getStudioId());
+						Log.d(STRING.TAG, "onClick: " + model.getStudioId());
 					}
 				});
 			}
 		};
 		Log.d(STRING.TAG, "loadOrders:" + adapter.getItemCount());
 		orderList.setAdapter(adapter);
+	}
+	
+	private void changeColorStatus(TextView textViewOrderStatus, int status) {
+		if (status == STRING.ORDER_WAITING) {
+			textViewOrderStatus.setBackgroundResource(
+					R.drawable.button_status_waitting);
+		}
+		if (status == STRING.ORDER_DONE) {
+			textViewOrderStatus.setBackgroundResource(
+					R.drawable.button_status_done);
+		}
+		if (status == STRING.ORDER_SUCCESS) {
+			textViewOrderStatus.setBackgroundResource(
+					R.drawable.button_status_success);
+		}
+		if (status == STRING.ORDER_CANCELLED) {
+			textViewOrderStatus.setBackgroundResource(
+					R.drawable.button_status_cancelled);
+		}
+	}
+	
+	private String getStatus(int status) {
+		if (status == STRING.ORDER_WAITING) {return STRING.WAITING;}
+		if (status == STRING.ORDER_DONE) {return STRING.DONE;}
+		if (status == STRING.ORDER_SUCCESS) {return STRING.SUCCESS;}
+		if (status == STRING.ORDER_CANCELLED) {return STRING.CANCELLED;}
+		return STRING.WAITING;
+	}
+	
+	private String getStudioName(String studioId) {
+		int index = keyStudioList.indexOf(studioId);
+		return index != -1 ? studioList.get(index).getName() : studioList.get(0)
+		                                                                 .getName();
 	}
 	
 	

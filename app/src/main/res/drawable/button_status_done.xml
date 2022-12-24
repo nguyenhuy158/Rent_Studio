@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (C) 12/24/22, 7:33 PM Nguyen Huy
+  ~
+  ~ button_status.xml [lastModified: 12/24/22, 7:33 PM]
+  ~
+  ~ Contact:
+  ~ facebook: https://www.facebook.com/nguyenhuy158/
+  ~ github: https://www.github.com/nguyenhuy158/
+  -->
+
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+    <solid android:color="#007bff" />
+    <corners android:radius="5dp" />
+</shape >

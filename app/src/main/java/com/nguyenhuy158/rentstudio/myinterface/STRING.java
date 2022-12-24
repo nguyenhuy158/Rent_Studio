@@ -28,10 +28,14 @@ public interface STRING {
 	String KEY_PHONE       = "phone";
 	
 	
-	int ORDER_CANCELLED = -1;
-	int ORDER_WAITING   = 0;
-	int ORDER_DONE      = 2;
-	int ORDER_SUCCESS   = 1;
+	int    ORDER_CANCELLED = -1;
+	int    ORDER_WAITING   = 0;
+	int    ORDER_DONE      = 2;
+	int    ORDER_SUCCESS   = 1;
+	String CANCELLED = "Cancelled";
+	String WAITING   = "Waiting";
+	String DONE    = "Done";
+	String SUCCESS = "Success";
 	
 	//	debug
 	String       TAG                     = "ContentValues";
@@ -43,4 +47,5 @@ public interface STRING {
 	int          REPEAT_COUNT            = 2;
 	CharSequence SIGNUP_FAIL             = "Fail! Phone or Username exists";
 	CharSequence SIGNUP_SUCCESS          = "Success";
+	int          DEFAULT_HOUR            = 1;
 }

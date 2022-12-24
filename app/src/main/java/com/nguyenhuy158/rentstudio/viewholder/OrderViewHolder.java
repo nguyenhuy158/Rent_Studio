@@ -24,6 +24,9 @@ public class OrderViewHolder extends RecyclerView.ViewHolder
 	public TextView textViewOrderPrice;
 	public TextView textViewOrderTime;
 	public TextView textViewOrderStudioName;
+	public TextView textViewOrderStartDate;
+	public TextView textViewOrderStatus;
+	public TextView textViewOrderTotalTime;
 	
 	public OrderViewHolder(@NonNull View itemView) {
 		super(itemView);
@@ -31,6 +34,9 @@ public class OrderViewHolder extends RecyclerView.ViewHolder
 		textViewOrderPrice      = itemView.findViewById(
 				R.id.textViewOrderPrice);
 		textViewOrderTime       = itemView.findViewById(R.id.textViewOrderTime);
+		textViewOrderStartDate       = itemView.findViewById(R.id.textViewOrderStartDate);
+		textViewOrderStatus       = itemView.findViewById(R.id.textViewOrderStatus);
+		textViewOrderTotalTime       = itemView.findViewById(R.id.textViewOrderTotalTime);
 		textViewOrderStudioName = itemView.findViewById(
 				R.id.textViewOrderStudioName);
 		

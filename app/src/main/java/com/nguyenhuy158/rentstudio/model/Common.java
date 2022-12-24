@@ -24,7 +24,9 @@ import androidx.fragment.app.DialogFragment;
 import com.nguyenhuy158.rentstudio.myinterface.STRING;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 public class Common {
@@ -65,6 +67,7 @@ public class Common {
 	
 	public final static Calendar                           myCalendar =
 			Calendar.getInstance();
+	
 	
 	
 
