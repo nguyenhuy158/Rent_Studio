@@ -16,6 +16,7 @@ public interface STRING {
 	String language_code  = "vi";
 	String country_code   = "VN";
 	String pattern_date   = "dd/MM/yyyy";
+	String pattern_time   = "HH:mm";
 	String USER_TABLE     = "User";
 	String CATEGORY_TABLE = "Category";
 	String STUDIO_TABLE   = "Studio";

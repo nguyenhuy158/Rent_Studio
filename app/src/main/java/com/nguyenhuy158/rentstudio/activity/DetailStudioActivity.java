@@ -21,6 +21,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.DialogFragment;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
@@ -131,14 +132,28 @@ public class DetailStudioActivity extends AppCompatActivity
 				                                             STRING.language_code,
 				                                             STRING.country_code));
 		
+		DateFormat timeFormat = new SimpleDateFormat(STRING.pattern_time,
+		                                             new Locale(
+				                                             STRING.language_code,
+				                                             STRING.country_code));
+		
 		Request request = new Request(Common.getPhone(), StudioId,
+		                              timeFormat.format(date).toString(),
 		                              dateFormat.format(date).toString(),
-		                              dateFormat.format(date).toString(),
-		                              dateFormat.format(date).toString(),
-		                              1,
+		                              dateFormat.format(date).toString(), 1,
 		                              currentStudio.getPrice());
 		
 		FirebaseDatabase.getInstance().getReference(STRING.REQUEST_TABLE).push()
 		                .setValue(request);
+	}
+	
+	public void showTimePickerDialog(View v) {
+		DialogFragment newFragment = new Common.TimePickerFragment();
+		newFragment.show(getSupportFragmentManager(), "timePicker");
+	}
+	
+	public void showDatePickerDialog(View v) {
+		DialogFragment newFragment = new Common.DatePickerFragment();
+		newFragment.show(getSupportFragmentManager(), "datePicker");
 	}
 }

@@ -54,12 +54,12 @@
         android:src="@drawable/ic_baseline_shopping_cart_checkout_24"
         app:layout_anchor="@id/app_bar_layout"
         app:layout_anchorGravity="bottom|right"
-        app:useCompatPadding="true"
         app:pressedTranslationZ="12dp"
+        app:useCompatPadding="true"
         />
     
-
     
-    <include layout="@layout/include_content_scrolling"/>
+        
+    <include layout="@layout/include_content_scrolling" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout >

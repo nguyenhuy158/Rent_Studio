@@ -38,5 +38,7 @@
     <string name="title_rewards" >Rewards</string >
     <string name="title_cart" >Cart</string >
     <string name="title_profile" >Profile</string >
+    <string name="pick_time" >00:00</string >
+    <string name="pick_date" >12/12/1212</string >
 
 </resources >
