@@ -36,6 +36,7 @@
             />
         
         <LinearLayout
+            android:id="@+id/layoutRecycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -83,7 +84,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="6dp"
+                app:cardCornerRadius="@dimen/card_corner"
                 >
                 <!--             recycler view -->
                 <androidx.recyclerview.widget.RecyclerView
@@ -96,5 +97,17 @@
                     />
             </androidx.cardview.widget.CardView >
         </LinearLayout >
+        
+        <View
+            android:layout_width="0dp"
+            android:layout_height="@dimen/large_margin"
+            android:layout_margin="@dimen/large_margin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layoutRecycler"
+            />
     </androidx.constraintlayout.widget.ConstraintLayout >
+
+
 </ScrollView >

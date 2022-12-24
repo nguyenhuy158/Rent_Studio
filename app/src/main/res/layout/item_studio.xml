@@ -10,22 +10,60 @@
 
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginVertical="@dimen/small_margin"
     android:orientation="vertical"
-    android:background="#f0f"
     >
     
-    <TextView
-        android:id="@+id/textViewStudioName"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:text="@string/hello_fragment_1"
-        />
-    <TextView
-        android:id="@+id/textViewStudioPrice"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:text="@string/hello_fragment_1"
-        />
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_category"
+        android:elevation="@dimen/small_elevation"
+        app:cardCornerRadius="@dimen/card_corner"
+        >
+        
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            
+            
+            <!--     logo app -->
+            <ImageView
+                android:layout_width="@dimen/gear_size"
+                android:layout_height="@dimen/gear_size"
+                android:layout_margin="@dimen/small_margin"
+                android:src="@drawable/ic_logo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout >
+    
+    </androidx.cardview.widget.CardView >
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/large_margin"
+        android:paddingVertical="@dimen/small_margin"
+        >
+        
+        <TextView
+            android:id="@+id/textViewStudioName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hello_fragment_1"
+            />
+        
+        <TextView
+            android:id="@+id/textViewStudioPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hello_fragment_1"
+            />
+    </LinearLayout >
 </LinearLayout >

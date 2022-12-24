@@ -8,7 +8,7 @@
   ~ github: https://www.github.com/nguyenhuy158/
   -->
 
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -18,13 +18,12 @@
     android:background="@color/fbutton_color_green_sea"
     tools:context=".activity.StudioListActivity"
     >
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        style="@style/TextAppearance.AppCompat.Title"
-        android:text="demo"/>
+
     
     <com.mancj.materialsearchbar.MaterialSearchBar
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:id="@+id/searchBar"
         style="@style/MaterialSearchBarLight"
         android:layout_width="match_parent"
@@ -35,10 +34,13 @@
         />
     
     <androidx.recyclerview.widget.RecyclerView
+        app:layout_constraintTop_toBottomOf="@id/searchBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:listitem="@layout/item_studio"
         
         />
-</LinearLayout >
+</androidx.constraintlayout.widget.ConstraintLayout >
