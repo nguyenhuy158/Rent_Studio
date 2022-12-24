@@ -37,8 +37,10 @@ import com.nguyenhuy158.rentstudio.model.Studio;
 import com.nguyenhuy158.rentstudio.myinterface.STRING;
 import com.nguyenhuy158.rentstudio.viewholder.OrderViewHolder;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class OrderStatusActivity extends AppCompatActivity {
 	
@@ -74,7 +76,7 @@ public class OrderStatusActivity extends AppCompatActivity {
 					                Studio studio = dataSnapshot.getValue(
 							                Studio.class);
 					                studioList.add(studio);
-					                keyStudioList.add(snapshot.getKey());
+					                keyStudioList.add(dataSnapshot.getKey());
 				                }
 			                }
 			
@@ -114,7 +116,11 @@ public class OrderStatusActivity extends AppCompatActivity {
 				Log.d(STRING.TAG, "onBindViewHolder:" + adapter.getItemCount());
 				
 				if (holder == null) {return;}
-				holder.textViewOrderPrice.setText(model.getTotal() + "");
+				Locale locale = new Locale(STRING.language_code,
+				                           STRING.country_code);
+				NumberFormat numberFormat = NumberFormat.getCurrencyInstance(
+						locale);
+				holder.textViewOrderPrice.setText(numberFormat.format(model.getTotal()));
 				holder.textViewOrderStudioName.setText(
 						getStudioName(model.getStudioId()));
 				holder.textViewOrderTime.setText(model.getBookTime() + " hour");
@@ -167,9 +173,16 @@ public class OrderStatusActivity extends AppCompatActivity {
 	}
 	
 	private String getStudioName(String studioId) {
-		int index = keyStudioList.indexOf(studioId);
-		return index != -1 ? studioList.get(index).getName() : studioList.get(0)
-		                                                                 .getName();
+		for (int i = 0; i < keyStudioList.size(); i++) {
+			Log.d(STRING.TAG, "getStudioName: " + keyStudioList.get(i));
+			if (keyStudioList.get(i).equals(studioId)) {
+				Log.d(STRING.TAG, "getStudioName: " + studioId);
+				Log.d(STRING.TAG, "getStudioName: " + studioList.get(i).getName());
+				
+				return studioList.get(i).getName();
+			}
+		}
+		return "";
 	}
 	
 	
