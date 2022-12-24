@@ -21,4 +21,6 @@
     <dimen name="xtr_large_margin" >48dp</dimen >
     <dimen name="big_xtr_large_margin" >72dp</dimen >
     <dimen name="small_elevation" >14dp</dimen >
+    <dimen name="height_thumbnail" >250dp</dimen >
+    <dimen name="small_radius" >16dp</dimen >
 </resources>

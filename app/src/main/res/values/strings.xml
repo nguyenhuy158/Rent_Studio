@@ -30,6 +30,8 @@
     <string name="text_sign_up" >Sign Up</string >
     <string name="text_slogan" >The city never sleeps</string >
     <string name="extra_slogan" >Service Truly Different</string >
+    <string name="text_username" >Phone or Username</string >
+    <string name="text_password" >Password</string >
 
 
 </resources >

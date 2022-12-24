@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (C) 12/24/22, 10:00 AM Nguyen Huy
+  ~
+  ~ button_sign_in.xml [lastModified: 12/24/22, 10:00 AM]
+  ~
+  ~ Contact:
+  ~ facebook: https://www.facebook.com/nguyenhuy158/
+  ~ github: https://www.github.com/nguyenhuy158/
+  -->
+
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+    
+    <corners android:radius="@dimen/small_radius" />
+    <solid android:color="#B9F6CA" />
+
+</shape >
