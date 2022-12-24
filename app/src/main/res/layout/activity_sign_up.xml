@@ -8,7 +8,7 @@
   ~ github: https://www.github.com/nguyenhuy158/
   -->
 
-<RelativeLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -17,43 +17,85 @@
     tools:context=".activity.SignUpActivity"
     >
     
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/thumbnail"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/height_thumbnail"
+        android:layout_marginTop="@dimen/large_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_progress="20"
+        app:lottie_rawRes="@raw/hello"
+        />
+    
     <LinearLayout
-        android:layout_width="300dp"
+        android:layout_width="@dimen/linearlayout_width"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/thumbnail"
         >
+        
+        <!--         username -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_username"
+            />
         
         <EditText
             android:id="@+id/editTextUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:required="true"
-            android:hint="Username"
             />
         
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginVertical="@dimen/small_margin"
+            />
+        <!--         password -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_password"
+            />
         
         <EditText
             android:id="@+id/editTextPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:required="true"
-            android:hint="Password"
             android:inputType="textPassword"
+            app:required="true"
+            />
+        <!--         button -->
+        
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="@dimen/large_margin"
+            android:background="@color/black"
+            />
+        
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="8dp"
+            android:background="@drawable/button_sign_up"
+            android:elevation="@dimen/small_elevation"
+            android:text="@string/text_sign_up"
+            android:textColor="@color/white"
+            android:textStyle="bold"
             />
     </LinearLayout >
-    
-    <Button
-        android:id="@+id/buttonSignUp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="Sign Up"
-        />
     
     <!--     progress -->
     <ProgressBar
@@ -62,7 +104,11 @@
         android:layout_height="100dp"
         android:layout_centerInParent="true"
         android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:progressBarColor="@android:color/holo_purple"
         app:progressBarThickness="10dp"
         />
-</RelativeLayout >
+</androidx.constraintlayout.widget.ConstraintLayout >

@@ -35,7 +35,6 @@ import com.nguyenhuy158.rentstudio.fixbug.WrapContentLinearLayoutManager;
 import com.nguyenhuy158.rentstudio.model.Category;
 import com.nguyenhuy158.rentstudio.myinterface.STRING;
 import com.nguyenhuy158.rentstudio.viewholder.CategoryViewHolder;
-import com.shashank.sony.fancytoastlib.FancyToast;
 import com.squareup.picasso.Picasso;
 
 
@@ -80,7 +79,7 @@ public class AccountFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	                         Bundle savedInstanceState) {
 		
-		View view = inflater.inflate(R.layout.fragment_account, container,
+		View view = inflater.inflate(R.layout.fragment_home, container,
 		                             false);
 		recyclerView = view.findViewById(R.id.recyclerView);
 		// recyclerView.setHasFixedSize(true);

@@ -41,6 +41,7 @@ public class LoginActivity extends AppCompatActivity
 	EditText          editTextPassword;
 	// EditTextPicker
 	Button            button;
+	Button            buttonSignUp;
 	ProgressBar       circularProgress;
 	User              currentUser;
 	
@@ -48,22 +49,35 @@ public class LoginActivity extends AppCompatActivity
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
+		
 		databaseReference = firebaseDatabase.getReference(STRING.USER_TABLE);
 		
+		bindUi();
+		handleEvent();
+	}
+	
+	private void handleEvent() {
+		button.setOnClickListener(this);
+		buttonSignUp.setOnClickListener(this);
+	}
+	
+	private void bindUi() {
+		buttonSignUp = findViewById(R.id.buttonSignUp);
 		editTextUsernameOrPhone = findViewById(R.id.editTextUsername);
 		editTextPassword        = findViewById(R.id.editTextPassword);
 		button                  = findViewById(R.id.buttonSignIn);
 		circularProgress        = findViewById(R.id.circularProgress);
-		button.setOnClickListener(this);
-		
 	}
-	
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
 			case R.id.buttonSignIn:
 				logInProcess();
 				break;
+			case R.id.buttonSignUp:
+				Intent intent = new Intent(this, SignUpActivity.class);
+				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+				startActivity(intent);
 		}
 		
 	}
@@ -92,7 +106,7 @@ public class LoginActivity extends AppCompatActivity
 					if (user.getPassword().equals(
 							editTextPassword.getText().toString())) {
 						FancyToast.makeText(LoginActivity.this, "Login Success",
-						                    FancyToast.LENGTH_LONG,
+						                    FancyToast.LENGTH_SHORT,
 						                    FancyToast.SUCCESS, true).show();
 						
 						// save currentUser
@@ -100,13 +114,13 @@ public class LoginActivity extends AppCompatActivity
 						goToHome();
 					} else {
 						FancyToast.makeText(LoginActivity.this, "Login Fail",
-						                    FancyToast.LENGTH_LONG,
+						                    FancyToast.LENGTH_SHORT,
 						                    FancyToast.WARNING, true).show();
 					}
 					
 				} else {
 					FancyToast.makeText(LoginActivity.this, "Login Fail",
-					                    FancyToast.LENGTH_LONG,
+					                    FancyToast.LENGTH_SHORT,
 					                    FancyToast.ERROR, true).show();
 				}
 				circularProgress.setVisibility(View.GONE);

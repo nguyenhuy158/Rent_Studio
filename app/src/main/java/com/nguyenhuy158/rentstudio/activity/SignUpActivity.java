@@ -10,14 +10,14 @@
 
 package com.nguyenhuy158.rentstudio.activity;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -31,14 +31,15 @@ import com.shashank.sony.fancytoastlib.FancyToast;
 
 public class SignUpActivity extends AppCompatActivity
 		implements View.OnClickListener {
-	FirebaseDatabase firebaseDatabase  = FirebaseDatabase.getInstance();
-	DatabaseReference    databaseReference =
-			firebaseDatabase.getReference(STRING.USER_TABLE);
-	EditText             editTextUsername;
-	EditText             editTextPassword;
+	FirebaseDatabase  firebaseDatabase  = FirebaseDatabase.getInstance();
+	DatabaseReference databaseReference = firebaseDatabase.getReference(
+			STRING.USER_TABLE);
+	EditText          editTextUsername;
+	EditText          editTextPassword;
 	// EditTextPicker
-	Button               button;
-	ProgressBar          circularProgress;
+	Button            button;
+	ProgressBar       circularProgress;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -68,8 +69,8 @@ public class SignUpActivity extends AppCompatActivity
 			public void onDataChange(@NonNull DataSnapshot snapshot) {
 				if (snapshot.child(editTextUsername.getText().toString())
 				            .exists()) {
-					FancyToast.makeText(SignUpActivity.this, "Sign Up Fail",
-					                    FancyToast.LENGTH_LONG,
+					FancyToast.makeText(SignUpActivity.this, STRING.SIGNUP_FAIL,
+					                    FancyToast.LENGTH_SHORT,
 					                    FancyToast.ERROR, true).show();
 					
 					
@@ -77,11 +78,16 @@ public class SignUpActivity extends AppCompatActivity
 					
 					User user = new User(editTextPassword.getText().toString());
 					databaseReference.child(
-							editTextUsername.getText().toString()).setValue(user);
-					  
-						FancyToast.makeText(SignUpActivity.this, "Sign Up Success",
-						                    FancyToast.LENGTH_LONG,
-						                    FancyToast.SUCCESS, true).show();
+							editTextUsername.getText().toString()).setValue(
+							user);
+					
+					FancyToast.makeText(SignUpActivity.this,
+					                    STRING.SIGNUP_SUCCESS,
+					                    FancyToast.LENGTH_SHORT,
+					                    FancyToast.SUCCESS, true).show();
+					circularProgress.setVisibility(View.GONE);
+					
+					finish();
 				}
 				circularProgress.setVisibility(View.GONE);
 			}

@@ -21,17 +21,18 @@
         android:id="@+id/thumbnail"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/height_thumbnail"
+        android:layout_marginTop="@dimen/large_margin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
-        app:lottie_progress="10"
-        app:lottie_rawRes="@raw/thumbnail_login"
+        app:lottie_progress="20"
+        app:lottie_rawRes="@raw/hello"
         />
     
     <LinearLayout
-        android:layout_width="300dp"
+        android:layout_width="@dimen/linearlayout_width"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:orientation="vertical"
@@ -84,6 +85,27 @@
             android:background="@drawable/button_sign_in"
             android:elevation="@dimen/small_elevation"
             android:text="@string/text_sign_in"
+            android:textStyle="bold"
+            />
+        
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="@dimen/large_margin"
+            android:background="@color/black"
+            />
+        
+        <!--     button sign up -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="8dp"
+            android:background="@drawable/button_sign_up"
+            android:elevation="@dimen/small_elevation"
+            android:text="@string/text_sign_up_create_new"
+            android:textColor="@color/white"
             android:textStyle="bold"
             />
     </LinearLayout >

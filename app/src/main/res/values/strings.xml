@@ -11,10 +11,7 @@
 <resources >
     <string name="app_name" >Rent Studio</string >
     
-    <string name="title_shop" >Shop</string >
-    <string name="title_gifts" >Gifts</string >
-    <string name="title_cart" >Cart</string >
-    <string name="title_profile" >Profile</string >
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_fragment_1" >Hello fragment 1</string >
     <string name="hello_fragment_2" >Hello fragment 2</string >
@@ -32,6 +29,14 @@
     <string name="extra_slogan" >Service Truly Different</string >
     <string name="text_username" >Phone or Username</string >
     <string name="text_password" >Password</string >
-
+    <string name="text_sign_up_create_new" >new user? Register now</string >
+    <string name="text_sign_in_login" >new user? Register now</string >
+    <string name="title_home" >Home</string >
+    <string name="title_search" >Search</string >
+    <string name="title_account" >Account</string >
+    <string name="title_shop" >Shop</string >
+    <string name="title_rewards" >Rewards</string >
+    <string name="title_cart" >Cart</string >
+    <string name="title_profile" >Profile</string >
 
 </resources >
