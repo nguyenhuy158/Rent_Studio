@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:defaultNavHost="true"
-        app:navGraph="@navigation/mobile_navigation"
+        app:navGraph="@navigation/graph_navigation"
         />
     
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -34,7 +34,7 @@
         android:background="?android:attr/windowBackground"
         app:layout_anchor="@+id/frame_container"
         app:layout_anchorGravity="bottom|center"
-        app:menu="@menu/navigation"
+        app:menu="@menu/bottom_navigation"
         app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
         />
 </androidx.coordinatorlayout.widget.CoordinatorLayout >

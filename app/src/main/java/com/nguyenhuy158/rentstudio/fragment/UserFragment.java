@@ -42,7 +42,7 @@ public class UserFragment extends Fragment implements View.OnClickListener {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	                         Bundle savedInstanceState) {
-		View   view               = inflater.inflate(R.layout.fragment_user,
+		View   view               = inflater.inflate(R.layout.fragment_account,
 		                                             container, false);
 		Button buttonOrderHistory = view.findViewById(R.id.buttonOrderHistory);
 		Button buttonLogout       = view.findViewById(R.id.buttonLogout);

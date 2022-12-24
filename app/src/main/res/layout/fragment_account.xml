@@ -1,45 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?><!--
-  ~ Copyright (C) 12/20/22, 10:27 AM Nguyen Huy
+  ~ Copyright (C) 12/21/22, 2:35 PM Nguyen Huy
   ~
-  ~ fragment_account.xml [lastModified: 12/20/22, 10:27 AM]
+  ~ fragment_user.xml [lastModified: 12/21/22, 2:34 PM]
   ~
   ~ Contact:
   ~ facebook: https://www.facebook.com/nguyenhuy158/
   ~ github: https://www.github.com/nguyenhuy158/
   -->
 
-<ScrollView
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:overScrollMode="always"
-    android:scrollbars="none"
-    tools:context=".fragment.AccountFragment"
+    tools:context=".fragment.UserFragment"
     >
     
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
         android:orientation="vertical"
         >
         
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/buttonOrderHistory"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_category"
-            
+            android:text="Order history"
             />
-        
-        <TextView
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/buttonLogout"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/large_text"
+            android:text="Logout"
             />
     
     </LinearLayout >
-</ScrollView >
+
+</FrameLayout >
