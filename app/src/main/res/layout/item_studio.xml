@@ -30,7 +30,12 @@
             android:orientation="vertical"
             >
             
-            
+            <ImageView
+                android:id="@+id/imageViewStudioThumbnail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                />
             <!--     logo app -->
             <ImageView
                 android:layout_width="@dimen/gear_size"
@@ -40,6 +45,17 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 />
+            <!--             heart -->
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/large_margin"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/heart"
+                />
         </androidx.constraintlayout.widget.ConstraintLayout >
     
     </androidx.cardview.widget.CardView >
@@ -48,19 +64,41 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingHorizontal="@dimen/large_margin"
-        android:paddingVertical="@dimen/small_margin"
+        android:padding="@dimen/small_margin"
         >
         
-        <TextView
-            android:id="@+id/textViewStudioName"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/hello_fragment_1"
-            />
+            android:gravity="center"
+            >
+            
+            <TextView
+                android:id="@+id/textViewStudioName"
+                style="@style/TextAppearance.MaterialComponents.Headline6"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/hello_fragment_1"
+                />
+            
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_round_star_24"
+                />
+            
+            <TextView
+                style="@style/TextAppearance.MaterialComponents.Subtitle1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5.0"
+                />
+        </LinearLayout >
         
         <TextView
             android:id="@+id/textViewStudioPrice"
+            style="@style/TextAppearance.MaterialComponents.Subtitle2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/hello_fragment_1"

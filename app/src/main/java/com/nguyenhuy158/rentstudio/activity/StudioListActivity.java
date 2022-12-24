@@ -39,9 +39,12 @@ import com.nguyenhuy158.rentstudio.fixbug.WrapContentLinearLayoutManager;
 import com.nguyenhuy158.rentstudio.model.Studio;
 import com.nguyenhuy158.rentstudio.myinterface.STRING;
 import com.nguyenhuy158.rentstudio.viewholder.StudioViewHolder;
+import com.squareup.picasso.Picasso;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class StudioListActivity extends AppCompatActivity {
 	String                                            CategoryId  = "";
@@ -155,6 +158,10 @@ public class StudioListActivity extends AppCompatActivity {
 										model.getName());
 								holder.textViewStudioPrice.setText(
 										model.getPrice() + "");
+								Picasso.get().load(model.getThumbnailUrl())
+								       .into(holder.imageViewStudioThumbnail);
+								Log.d(TAG, "onBindViewHolder: load thumbnail " +
+										"image");
 								holder.itemView.setOnClickListener(
 										new View.OnClickListener() {
 											@Override
@@ -171,8 +178,7 @@ public class StudioListActivity extends AppCompatActivity {
 											}
 										});
 							}
-						};
-						searchAdapter.startListening();
+						}; searchAdapter.startListening();
 						Log.i(TAG,
 						      "loadListStudio: searchAdapter " + searchAdapter.getItemCount());
 						recyclerView.setAdapter(searchAdapter);
@@ -276,7 +282,15 @@ public class StudioListActivity extends AppCompatActivity {
 			                                @NonNull Studio model) {
 				if (holder == null) {return;}
 				holder.textViewStudioName.setText(model.getName());
-				holder.textViewStudioPrice.setText(model.getPrice() + "");
+				Locale locale = new Locale(STRING.language_code,
+				                           STRING.country_code);
+				NumberFormat numberFormat = NumberFormat.getCurrencyInstance(
+						locale);
+				holder.textViewStudioPrice.setText(numberFormat.format(model.getPrice()));
+				Picasso.get().load(model.getThumbnailUrl())
+				       .into(holder.imageViewStudioThumbnail);
+				Log.d(TAG, "onBindViewHolder: load thumbnail " +
+						"image");
 				holder.itemView.setOnClickListener(new View.OnClickListener() {
 					@Override
 					public void onClick(View v) {

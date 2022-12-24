@@ -10,6 +10,7 @@
 
 package com.nguyenhuy158.rentstudio.viewholder;
 
+import android.media.Image;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -24,6 +25,8 @@ public class StudioViewHolder extends RecyclerView.ViewHolder
 		implements View.OnClickListener {
 	public TextView  textViewStudioName;
 	public TextView textViewStudioPrice;
+	public ImageView imageViewStudioThumbnail;
+	
 	IRecyclerViewItemClickListener iRecyclerViewItemClickListener;
 	
 	public StudioViewHolder(@NonNull View itemView) {
@@ -32,7 +35,8 @@ public class StudioViewHolder extends RecyclerView.ViewHolder
 				R.id.textViewStudioName);
 		textViewStudioPrice       = itemView.findViewById(
 				R.id.textViewStudioPrice);
-		
+		imageViewStudioThumbnail =
+				itemView.findViewById(R.id.imageViewStudioThumbnail);
 		itemView.setOnClickListener(this);
 	}
 	
