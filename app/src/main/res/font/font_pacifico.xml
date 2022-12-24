@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (C) 12/24/22, 9:22 AM Nguyen Huy
+  ~
+  ~ font_pacifico.xml [lastModified: 12/24/22, 9:22 AM]
+  ~
+  ~ Contact:
+  ~ facebook: https://www.facebook.com/nguyenhuy158/
+  ~ github: https://www.github.com/nguyenhuy158/
+  -->
+
+<font-family xmlns:android="http://schemas.android.com/apk/res/android" >
+    <font
+        android:font="@font/pacifico"
+        android:fontStyle="normal"
+        android:fontWeight="900"
+        />
+<!--     pacifico_italic -->
+    <font
+        android:font="@font/pacifico"
+        android:fontStyle="italic"
+        android:fontWeight="400"
+        />
+</font-family >

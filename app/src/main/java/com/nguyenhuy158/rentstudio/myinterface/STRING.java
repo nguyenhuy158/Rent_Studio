@@ -38,5 +38,6 @@ public interface STRING {
 	String       message_exit            = "Please click BACK again to exit";
 	long         delayMillis             = 2000;
 	long         delayMillisSplashScreen = 3000;
-	CharSequence hint_search             = "Search studio";
+	CharSequence hint_search  = "Search studio";
+	int          REPEAT_COUNT = 2;
 }

@@ -14,4 +14,11 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="text_margin">16dp</dimen>
     <dimen name="elevation_item" >10dp</dimen >
+    <dimen name="small_margin" >8dp</dimen >
+    <dimen name="large_margin" >24dp</dimen >
+    <dimen name="font_large" >24sp</dimen >
+    <dimen name="medium_margin" >16dp</dimen >
+    <dimen name="xtr_large_margin" >48dp</dimen >
+    <dimen name="big_xtr_large_margin" >72dp</dimen >
+    <dimen name="small_elevation" >14dp</dimen >
 </resources>
