@@ -24,18 +24,28 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.denzcoskun.imageslider.ImageSlider;
+import com.denzcoskun.imageslider.constants.ScaleTypes;
+import com.denzcoskun.imageslider.models.SlideModel;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.nguyenhuy158.rentstudio.R;
 import com.nguyenhuy158.rentstudio.activity.StudioListActivity;
 import com.nguyenhuy158.rentstudio.fixbug.WrapContentLinearLayoutManager;
 import com.nguyenhuy158.rentstudio.model.Category;
+import com.nguyenhuy158.rentstudio.model.Studio;
 import com.nguyenhuy158.rentstudio.myinterface.STRING;
 import com.nguyenhuy158.rentstudio.viewholder.CategoryViewHolder;
 import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class HomeFragment extends Fragment {
@@ -47,6 +57,7 @@ public class HomeFragment extends Fragment {
 	FirebaseDatabase                                      firebaseDatabase
 			= FirebaseDatabase.getInstance();
 	DatabaseReference                                     databaseReference;
+	ImageSlider                                           imageSlider;
 	// TODO: Rename and change types of parameters
 	private String mParam1;
 	private String mParam2;
@@ -78,9 +89,9 @@ public class HomeFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	                         Bundle savedInstanceState) {
+		View view = inflater.inflate(R.layout.fragment_home, container, false);
+		imageSlider(view);
 		
-		View view = inflater.inflate(R.layout.fragment_home, container,
-		                             false);
 		recyclerView = view.findViewById(R.id.recyclerView);
 		// recyclerView.setHasFixedSize(true);
 		recyclerView.setLayoutManager(
@@ -90,6 +101,59 @@ public class HomeFragment extends Fragment {
 		getCategory();
 		
 		return view;
+	}
+	
+	private void imageSlider(View view) {
+		List<SlideModel> imageList = new ArrayList<>();
+		
+		imageList.add(new SlideModel("https://bit.ly/2YoJ77H",
+		                             "The animal " + "population decreased by 58 percent in 42 years.",
+		                             ScaleTypes.CENTER_CROP));
+		imageList.add(new SlideModel("https://bit.ly/2BteuF2",
+		                             "Elephants and " + "tigers may become extinct.",
+		                             ScaleTypes.CENTER_CROP));
+		imageList.add(new SlideModel("https://bit.ly/3fLJf72",
+		                             "And people do " + "that.",
+		                             ScaleTypes.CENTER_CROP));
+		imageList   = loadImageToSlider(imageList);
+		imageSlider = view.findViewById(R.id.image_slider);
+		imageSlider.setImageList(imageList);
+	}
+	
+	private List<SlideModel> loadImageToSlider(List<SlideModel> imageList) {
+		Query query = FirebaseDatabase.getInstance().getReference(
+				STRING.STUDIO_TABLE);
+		FirebaseRecyclerOptions<Studio> firebaseRecyclerOptions
+				= new FirebaseRecyclerOptions.Builder<Studio>().setQuery(query,
+				                                                         Studio.class)
+				                                               .build();
+		FirebaseDatabase.getInstance().getReference(STRING.STUDIO_TABLE)
+		                .addValueEventListener(new ValueEventListener() {
+			                @Override
+			                public void onDataChange(
+					                @NonNull DataSnapshot snapshot) {
+				                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+					                Studio studio = dataSnapshot.getValue(
+							                Studio.class);
+					                Log.d(STRING.TAG,
+					                      "onDataChange: slider" + studio.getName());
+					                imageList.add(new SlideModel(
+							                studio.getThumbnailUrl(),
+							                studio.getName(),
+							                ScaleTypes.CENTER_CROP));
+				                }
+			                }
+			
+			                @Override
+			                public void onCancelled(
+					                @NonNull DatabaseError error) {
+				
+			                }
+		                });
+		
+		recyclerView.setAdapter(adapter);
+		
+		return imageList;
 	}
 	
 	private void getCategory() {
