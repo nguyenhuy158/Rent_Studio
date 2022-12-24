@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (C) 12/24/22, 3:42 PM Nguyen Huy
+  ~
+  ~ button_corner.xml [lastModified: 12/24/22, 3:42 PM]
+  ~
+  ~ Contact:
+  ~ facebook: https://www.facebook.com/nguyenhuy158/
+  ~ github: https://www.github.com/nguyenhuy158/
+  -->
+
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+    <solid android:color="@color/black" />
+    <corners android:radius="5dp" />
+</shape >
