@@ -71,7 +71,7 @@ public class SignUpActivity extends AppCompatActivity
 				            .exists()) {
 					FancyToast.makeText(SignUpActivity.this, STRING.SIGNUP_FAIL,
 					                    FancyToast.LENGTH_SHORT,
-					                    FancyToast.ERROR, true).show();
+					                    FancyToast.ERROR, false).show();
 					
 					
 				} else {

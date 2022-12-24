@@ -65,9 +65,7 @@
                     android:layout_height="match_parent"
                     app:iss_auto_cycle="true"
                     app:iss_delay="0"
-                    app:iss_error_image="@drawable/error"
                     app:iss_period="1000"
-                    app:iss_placeholder="@drawable/placeholder"
                     app:iss_selected_dot="@drawable/default_selected_dot"
                     app:iss_unselected_dot="@drawable/default_unselected_dot"
                     

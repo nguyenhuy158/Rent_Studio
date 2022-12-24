@@ -29,4 +29,6 @@
     <dimen name="large_elevation" >12dp</dimen >
     <dimen name="card_corner" >6dp</dimen >
     <dimen name="extra_small_margin" >4dp</dimen >
+    <dimen name="big_big_xtr_large_margin" >80dp</dimen >
+    <dimen name="font_medium" >22sp</dimen >
 </resources>

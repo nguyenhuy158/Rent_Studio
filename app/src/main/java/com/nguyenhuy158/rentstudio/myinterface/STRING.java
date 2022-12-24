@@ -42,10 +42,11 @@ public interface STRING {
 	String       fragment                = "fragmentt";
 	String       message_exit            = "Please click BACK again to exit";
 	long         delayMillis             = 2000;
-	long         delayMillisSplashScreen = 500;
+	long         delayMillisSplashScreen = 2800;
 	CharSequence hint_search             = "Search studio";
 	int          REPEAT_COUNT            = 2;
 	CharSequence SIGNUP_FAIL             = "Fail! Phone or Username exists";
 	CharSequence SIGNUP_SUCCESS          = "Success";
-	int          DEFAULT_HOUR            = 1;
+	int          DEFAULT_HOUR = 1;
+	CharSequence BOOK_MESSAGE = "Đặt phòng thành công";
 }

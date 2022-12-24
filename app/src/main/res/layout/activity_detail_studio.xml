@@ -59,7 +59,6 @@
         />
     
     
-        
     <include layout="@layout/include_content_scrolling" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout >

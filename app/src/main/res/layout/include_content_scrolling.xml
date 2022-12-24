@@ -10,150 +10,154 @@
     tools:showIn="@layout/activity_detail_studio"
     >
     
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/text_margin"
-        android:orientation="vertical"
         >
         
-        <!--         price -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:layout_marginHorizontal="@dimen/text_margin"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             >
             
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:src="@drawable/ic_baseline_credit_card_24"
+            <!--         price -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                >
+                
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_baseline_credit_card_24"
+                    />
+                
+                <TextView
+                    android:id="@+id/textViewStudioPrice"
+                    style="@style/TextAppearance.MaterialComponents.Headline6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/text_margin"
+                    android:text="160.000"
+                    />
+            </LinearLayout >
+            
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="@dimen/small_margin"
+                android:background="@color/divider"
                 />
+            
+            <!--         date -->
+            <!--         time -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                
+                <!--             time -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    >
+                    
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_round_access_time_24"
+                        />
+                    
+                    <TextView
+                        android:id="@+id/textViewOrderTime"
+                        style="@style/TextAppearance.MaterialComponents.Subtitle1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/small_margin"
+                        android:onClick="showTimePickerDialog"
+                        android:text="@string/pick_time"
+                        />
+                
+                </LinearLayout >
+                
+                <!--             date -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    >
+                    
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_round_date_range_24"
+                        />
+                    
+                    <TextView
+                        android:id="@+id/textViewOrderStartDate"
+                        style="@style/TextAppearance.MaterialComponents.Subtitle1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/small_margin"
+                        android:onClick="showDatePickerDialog"
+                        android:text="@string/pick_date"
+                        />
+                </LinearLayout >
+            
+            
+            </LinearLayout >
+            
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="@dimen/small_margin"
+                android:background="@color/divider"
+                />
+            <!--         &lt;!&ndash;             hour &ndash;&gt; -->
+            <!--         <LinearLayout -->
+            <!--             android:layout_width="match_parent" -->
+            <!--             android:layout_height="wrap_content" -->
+            <!--             android:gravity="center" -->
+            <!--             > -->
+            <!--          -->
+            <!--             <TextView -->
+            <!--                 android:layout_width="wrap_content" -->
+            <!--                 android:layout_height="wrap_content" -->
+            <!--                 android:onClick="showDatePickerDialog" -->
+            <!--                 android:text="Hours:" -->
+            <!--                 /> -->
+            <!--          -->
+            <!--             <EditText -->
+            <!--                 android:layout_width="0dp" -->
+            <!--                 android:layout_height="wrap_content" -->
+            <!--                 android:layout_weight="1" -->
+            <!--                 android:inputType="number" -->
+            <!--                 android:text="1" -->
+            <!--                 android:textAlignment="center" -->
+            <!--                 /> -->
+            <!--         </LinearLayout > -->
             
             <TextView
-                android:id="@+id/textViewStudioPrice"
-                style="@style/TextAppearance.MaterialComponents.Headline6"
+                android:id="@+id/textViewStudioDescription"
+                style="@style/TextAppearance.MaterialComponents.Body1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/text_margin"
-                android:text="160.000"
+                android:text="@string/large_text"
                 />
-        </LinearLayout >
-        
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_margin="@dimen/small_margin"
-            android:background="@color/divider"
-            />
-        
-        <!--         date -->
-        <!--         time -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
-            
-            <!--             time -->
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                >
-                
-                <com.airbnb.lottie.LottieAnimationView
-                    android:layout_width="@dimen/gear_size"
-                    android:layout_height="@dimen/gear_size"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:lottie_autoPlay="true"
-                    app:lottie_loop="true"
-                    app:lottie_progress="20"
-                    app:lottie_rawRes="@raw/timer"
-                    />
-                
-                <TextView
-                    style="@style/TextAppearance.MaterialComponents.Subtitle1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="showTimePickerDialog"
-                    android:text="@string/pick_time"
-                    android:id="@+id/textViewOrderTime"
-                    />
-            
-            </LinearLayout >
-            
-            <!--             date -->
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                >
-                
-                <com.airbnb.lottie.LottieAnimationView
-                    android:layout_width="@dimen/gear_size"
-                    android:layout_height="@dimen/gear_size"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:lottie_autoPlay="true"
-                    app:lottie_loop="true"
-                    app:lottie_progress="10"
-                    app:lottie_rawRes="@raw/calendar"
-                    />
-                
-                <TextView
-                    style="@style/TextAppearance.MaterialComponents.Subtitle1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="showDatePickerDialog"
-                    android:text="@string/pick_date"
-                    android:id="@+id/textViewOrderStartDate"
-                    />
-            </LinearLayout >
-        
         
         </LinearLayout >
         
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_margin="@dimen/small_margin"
-            android:background="@color/divider"
-            />
-        <!--         &lt;!&ndash;             hour &ndash;&gt; -->
-        <!--         <LinearLayout -->
-        <!--             android:layout_width="match_parent" -->
-        <!--             android:layout_height="wrap_content" -->
-        <!--             android:gravity="center" -->
-        <!--             > -->
-        <!--          -->
-        <!--             <TextView -->
-        <!--                 android:layout_width="wrap_content" -->
-        <!--                 android:layout_height="wrap_content" -->
-        <!--                 android:onClick="showDatePickerDialog" -->
-        <!--                 android:text="Hours:" -->
-        <!--                 /> -->
-        <!--          -->
-        <!--             <EditText -->
-        <!--                 android:layout_width="0dp" -->
-        <!--                 android:layout_height="wrap_content" -->
-        <!--                 android:layout_weight="1" -->
-        <!--                 android:inputType="number" -->
-        <!--                 android:text="1" -->
-        <!--                 android:textAlignment="center" -->
-        <!--                 /> -->
-        <!--         </LinearLayout > -->
-        
-        <TextView
-            android:id="@+id/textViewStudioDescription"
-            style="@style/TextAppearance.MaterialComponents.Body1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/large_text"
-            />
-    </LinearLayout >
+
+    </androidx.constraintlayout.widget.ConstraintLayout >
 
 
 </androidx.core.widget.NestedScrollView >

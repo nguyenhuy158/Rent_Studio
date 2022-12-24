@@ -37,6 +37,7 @@ import com.nguyenhuy158.rentstudio.model.Common;
 import com.nguyenhuy158.rentstudio.model.Request;
 import com.nguyenhuy158.rentstudio.model.Studio;
 import com.nguyenhuy158.rentstudio.myinterface.STRING;
+import com.shashank.sony.fancytoastlib.FancyToast;
 import com.squareup.picasso.Picasso;
 
 import java.text.DateFormat;
@@ -48,6 +49,20 @@ import java.util.Locale;
 
 public class DetailStudioActivity extends AppCompatActivity
 		implements View.OnClickListener {
+	String               StudioId = "";
+	Studio               currentStudio;
+	FloatingActionButton buttonBookNow;
+	TextView             textViewOrderTime;
+	public TimePickerDialog.OnTimeSetListener time
+			= new TimePickerDialog.OnTimeSetListener() {
+		@Override
+		public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+			Common.myCalendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
+			Common.myCalendar.set(Calendar.MINUTE, minute);
+			updateTime(textViewOrderTime, Common.myCalendar);
+		}
+	};
+	TextView textViewOrderStartDate;
 	// custom date time picker
 	public DatePickerDialog.OnDateSetListener date
 			= new DatePickerDialog.OnDateSetListener() {
@@ -59,20 +74,6 @@ public class DetailStudioActivity extends AppCompatActivity
 			updateDate(textViewOrderStartDate, Common.myCalendar);
 		}
 	};
-	public TimePickerDialog.OnTimeSetListener time
-			= new TimePickerDialog.OnTimeSetListener() {
-		@Override
-		public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-			Common.myCalendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
-			Common.myCalendar.set(Calendar.MINUTE, minute);
-			updateTime(textViewOrderTime, Common.myCalendar);
-		}
-	};
-	String StudioId = "";
-	Studio currentStudio;
-	FloatingActionButton buttonBookNow;
-	TextView             textViewOrderTime;
-	TextView             textViewOrderStartDate;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -131,9 +132,13 @@ public class DetailStudioActivity extends AppCompatActivity
 				textViewStudioPrice.setText(
 						numberFormat.format(currentStudio.getPrice()));
 				textViewStudioDescription.setText(
-						currentStudio.getDescription());
+						currentStudio.getName() + "\n\n" +
+								
+								currentStudio.getDescription());
 				setSupportActionBar(toolbarStudioName);
 				getSupportActionBar().setTitle(currentStudio.getName());
+				Log.d(TAG,
+				      "onDataChange: title" + toolbarStudioName.getTitle());
 				// toolbarStudioName.setTitle();
 				
 				Log.d(TAG,
@@ -188,12 +193,17 @@ public class DetailStudioActivity extends AppCompatActivity
 		
 		Request request = new Request(Common.getPhone(), StudioId,
 		                              textViewOrderTime.getText().toString(),
-		                              textViewOrderStartDate.getText().toString(),
-		                              textViewOrderStartDate.getText().toString(), STRING.DEFAULT_HOUR,
+		                              textViewOrderStartDate.getText()
+		                                                    .toString(),
+		                              textViewOrderStartDate.getText()
+		                                                    .toString(),
+		                              STRING.DEFAULT_HOUR,
 		                              currentStudio.getPrice());
 		
 		FirebaseDatabase.getInstance().getReference(STRING.REQUEST_TABLE).push()
 		                .setValue(request);
+		FancyToast.makeText(this, STRING.BOOK_MESSAGE, FancyToast.LENGTH_SHORT,
+		                    FancyToast.SUCCESS, false).show();
 	}
 	
 	public void showTimePickerDialog(View v) {
@@ -207,13 +217,14 @@ public class DetailStudioActivity extends AppCompatActivity
 	}
 	
 	public void updateDate(TextView editTextDate, Calendar myCalendar) {
-		java.text.DateFormat dateFormat = new SimpleDateFormat(STRING.pattern_date);
+		java.text.DateFormat dateFormat = new SimpleDateFormat(
+				STRING.pattern_date);
 		editTextDate.setText(dateFormat.format(myCalendar.getTime()));
 	}
 	
 	public void updateTime(TextView editTextTime, Calendar myCalendar) {
-		java.text.DateFormat dateFormat =
-				new SimpleDateFormat(STRING.pattern_time);
+		java.text.DateFormat dateFormat = new SimpleDateFormat(
+				STRING.pattern_time);
 		editTextTime.setText(dateFormat.format(myCalendar.getTime()));
 	}
 	

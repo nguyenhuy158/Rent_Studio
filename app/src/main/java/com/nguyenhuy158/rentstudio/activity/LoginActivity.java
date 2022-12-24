@@ -107,7 +107,7 @@ public class LoginActivity extends AppCompatActivity
 							editTextPassword.getText().toString())) {
 						FancyToast.makeText(LoginActivity.this, "Login Success",
 						                    FancyToast.LENGTH_SHORT,
-						                    FancyToast.SUCCESS, true).show();
+						                    FancyToast.SUCCESS, false).show();
 						
 						// save currentUser
 						currentUser = user;
@@ -115,13 +115,13 @@ public class LoginActivity extends AppCompatActivity
 					} else {
 						FancyToast.makeText(LoginActivity.this, "Login Fail",
 						                    FancyToast.LENGTH_SHORT,
-						                    FancyToast.WARNING, true).show();
+						                    FancyToast.WARNING, false).show();
 					}
 					
 				} else {
 					FancyToast.makeText(LoginActivity.this, "Login Fail",
 					                    FancyToast.LENGTH_SHORT,
-					                    FancyToast.ERROR, true).show();
+					                    FancyToast.ERROR, false).show();
 				}
 				circularProgress.setVisibility(View.GONE);
 			}

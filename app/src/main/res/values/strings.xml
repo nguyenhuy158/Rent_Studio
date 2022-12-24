@@ -9,7 +9,7 @@
   -->
 
 <resources >
-    <string name="app_name" >Rent Studio</string >
+    <string name="app_name" >World Studio</string >
     
 
     <!-- TODO: Remove or change this placeholder text -->
@@ -26,7 +26,7 @@
     <string name="text_sign_in" >Sign In</string >
     <string name="text_sign_up" >Sign Up</string >
     <string name="text_slogan" >The city never sleeps</string >
-    <string name="extra_slogan" >Service Truly Different</string >
+    <string name="extra_slogan" >Here\'s to the world who dream</string >
     <string name="text_username" >Phone or Username</string >
     <string name="text_password" >Password</string >
     <string name="text_sign_up_create_new" >new user? Register now</string >
