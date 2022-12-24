@@ -16,12 +16,14 @@ import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.TimePicker;
 
 import androidx.fragment.app.DialogFragment;
 
 import com.nguyenhuy158.rentstudio.myinterface.STRING;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
@@ -60,6 +62,12 @@ public class Common {
 	public static synchronized void setUser(User user) {
 		Common.user = user;
 	}
+	
+	public final static Calendar                           myCalendar =
+			Calendar.getInstance();
+	
+	
+
 	
 	//	date time picker
 	public static class TimePickerFragment extends DialogFragment

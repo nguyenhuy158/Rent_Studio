@@ -79,6 +79,7 @@
                     android:layout_height="wrap_content"
                     android:onClick="showTimePickerDialog"
                     android:text="@string/pick_time"
+                    android:id="@+id/textViewOrderTime"
                     />
             
             </LinearLayout >
@@ -108,6 +109,7 @@
                     android:layout_height="wrap_content"
                     android:onClick="showDatePickerDialog"
                     android:text="@string/pick_date"
+                    android:id="@+id/textViewOrderStartDate"
                     />
             </LinearLayout >
         

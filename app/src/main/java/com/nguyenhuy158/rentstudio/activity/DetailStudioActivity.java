@@ -12,11 +12,15 @@ package com.nguyenhuy158.rentstudio.activity;
 
 import static android.content.ContentValues.TAG;
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -38,27 +42,42 @@ import com.squareup.picasso.Picasso;
 import java.text.DateFormat;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
 public class DetailStudioActivity extends AppCompatActivity
 		implements View.OnClickListener {
+	// custom date time picker
+	public DatePickerDialog.OnDateSetListener date
+			= new DatePickerDialog.OnDateSetListener() {
+		@Override
+		public void onDateSet(DatePicker view, int year, int month, int day) {
+			Common.myCalendar.set(Calendar.YEAR, year);
+			Common.myCalendar.set(Calendar.MONTH, month);
+			Common.myCalendar.set(Calendar.DAY_OF_MONTH, day);
+			updateDate(textViewOrderStartDate, Common.myCalendar);
+		}
+	};
+	public TimePickerDialog.OnTimeSetListener time
+			= new TimePickerDialog.OnTimeSetListener() {
+		@Override
+		public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+			Common.myCalendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
+			Common.myCalendar.set(Calendar.MINUTE, minute);
+			updateTime(textViewOrderTime, Common.myCalendar);
+		}
+	};
 	String StudioId = "";
 	Studio currentStudio;
-	
 	FloatingActionButton buttonBookNow;
+	TextView             textViewOrderTime;
+	TextView             textViewOrderStartDate;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_detail_studio);
-		
-		// new Handler().postDelayed(new Runnable() {
-		// 	@Override
-		// 	public void run() {
-		// 		finish();
-		// 	}
-		// }, 2000);
 		
 		if (getIntent() != null) {
 			StudioId = getIntent().getStringExtra(STRING.KEY_STUDIO_ID);
@@ -71,6 +90,22 @@ public class DetailStudioActivity extends AppCompatActivity
 		
 		buttonBookNow = findViewById(R.id.buttonBookNow);
 		buttonBookNow.setOnClickListener(this);
+		
+		bindUi();
+		handleEvent();
+	}
+	
+	private void handleEvent() {
+		textViewOrderTime.setOnClickListener(this);
+		textViewOrderStartDate.setOnClickListener(this);
+		
+	}
+	
+	private void bindUi() {
+		textViewOrderTime      = findViewById(R.id.textViewOrderTime);
+		textViewOrderStartDate = findViewById(R.id.textViewOrderStartDate);
+		updateTime(textViewOrderTime, Common.myCalendar);
+		updateDate(textViewOrderStartDate, Common.myCalendar);
 	}
 	
 	private void loadStudio() {
@@ -108,7 +143,7 @@ public class DetailStudioActivity extends AppCompatActivity
 			
 			@Override
 			public void onCancelled(@NonNull DatabaseError error) {
-				
+			
 			}
 		});
 		
@@ -120,6 +155,19 @@ public class DetailStudioActivity extends AppCompatActivity
 		switch (v.getId()) {
 			case R.id.buttonBookNow:
 				book();
+				break;
+			case R.id.textViewOrderStartDate:
+				new DatePickerDialog(DetailStudioActivity.this, date,
+				                     Common.myCalendar.get(Calendar.YEAR),
+				                     Common.myCalendar.get(Calendar.MONTH),
+				                     Common.myCalendar.get(
+						                     Calendar.DAY_OF_MONTH)).show();
+				break;
+			case R.id.textViewOrderTime:
+				new TimePickerDialog(DetailStudioActivity.this, time,
+				                     Common.myCalendar.get(Calendar.YEAR),
+				                     Common.myCalendar.get(Calendar.MONTH),
+				                     true).show();
 				break;
 		}
 	}
@@ -156,4 +204,16 @@ public class DetailStudioActivity extends AppCompatActivity
 		DialogFragment newFragment = new Common.DatePickerFragment();
 		newFragment.show(getSupportFragmentManager(), "datePicker");
 	}
+	
+	public void updateDate(TextView editTextDate, Calendar myCalendar) {
+		java.text.DateFormat dateFormat = new SimpleDateFormat(STRING.pattern_date);
+		editTextDate.setText(dateFormat.format(myCalendar.getTime()));
+	}
+	
+	public void updateTime(TextView editTextTime, Calendar myCalendar) {
+		java.text.DateFormat dateFormat =
+				new SimpleDateFormat(STRING.pattern_time);
+		editTextTime.setText(dateFormat.format(myCalendar.getTime()));
+	}
+	
 }
